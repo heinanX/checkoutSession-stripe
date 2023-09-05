@@ -1,0 +1,22 @@
+### GET USERS
+GET http://localhost:3000/api/users
+
+
+### POST A USER
+POST http://localhost:3000/api/users
+
+
+### GET PRODUCTS
+GET http://localhost:3000/api/products
+
+
+### GET SPECIFIC PRODUCT
+GET http://localhost:3000/api/products/:id
+
+
+### GET ORDERS
+GET http://localhost:3000/api/orders
+
+
+### POST AN ORDER
+POST http://localhost:3000/api/oders
