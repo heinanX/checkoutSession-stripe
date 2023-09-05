@@ -1,0 +1,39 @@
+.SignUpForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: rgb(74, 148, 134);
+    padding: 5em 5em;
+    border-radius: 15em;
+}
+
+.SignUpForm > span {
+    color: rgb(236, 254, 249);
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.SignUpForm > input {
+    padding: 1em 10px;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+}
+
+.SignUpForm > p {
+    font-size: small;
+    text-align: center;
+}
+
+.signUp--btn {
+    margin-top: 2em;
+
+}
+
+.close-window {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
