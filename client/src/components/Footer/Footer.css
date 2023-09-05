@@ -1,0 +1,24 @@
+footer {
+    width: 100%;
+    padding: 30px 40px;
+    background-color: rgb(160, 205, 193);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+/*     position: absolute;
+    bottom: 0;
+    left: 0; */
+}
+
+.services h3, .eye-health h3, .about h3 {
+    padding-bottom: 1em;
+}
+.services li, .eye-health li, .about li {
+    padding-bottom: 3px;
+}
+.services li:hover, .eye-health li:hover, .about li:hover {
+    color: aliceblue;
+    cursor: pointer;
+}
