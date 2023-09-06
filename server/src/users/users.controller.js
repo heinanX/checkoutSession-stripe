@@ -1,4 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
+const fs = require('fs')
 
 const getUsers = async (req, res) => {
 /*     try {
@@ -13,13 +14,16 @@ const getUsers = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-/*     try {
-        res.status(200).json({ message: 'hello' })
-      } catch (error) {
-        console.error(error);
-      } */
-      res.status(200).json({ message: 'user created' })
-    
+  try {
+   
+  const customer = await stripe.customers.create({
+    email: req.body.email,
+    description: req.body.description
+  });
+  res.status(200).json({ customer })
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 module.exports = { getUsers, createUser }
