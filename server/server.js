@@ -5,10 +5,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 
 const app = express();
 app.use(express.json());
+
 app.use(
-    cors({
-        origin: 'http://localhost:5173'
-    })
+  cors({
+    origin: "*",
+  })
 );
 
 // ----- Saras kod
