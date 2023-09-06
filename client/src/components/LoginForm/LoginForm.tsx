@@ -10,6 +10,15 @@ const LoginForm = () => {
         setSignUpVisibility(true)
     }
 
+    const handleLogIn = async () => {
+
+        const response = await fetch(
+          "http://localhost:3000/"
+        );
+        const data = await response.json();
+       console.log(data);
+    } 
+
     return (
         <div className="loginForm">
             <span>
@@ -24,7 +33,7 @@ const LoginForm = () => {
 
             <p>Need to <a onClick={switchForm}>sign up</a>?</p>
 
-            <button className='login--btn' type="submit">Login</button>
+            <button className='login--btn' type="submit" onClick={handleLogIn}>Login</button>
         </div>
     )
 }
