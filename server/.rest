@@ -11,7 +11,10 @@ GET http://localhost:3000/api/products
 
 
 ### GET SPECIFIC PRODUCT
-GET http://localhost:3000/api/products/:id
+GET http://localhost:3000/api/products/prod_OZhAh5rhAVoVSO
+
+### POST PRODUCT
+POST http://localhost:3000/api/products
 
 
 ### GET ORDERS
