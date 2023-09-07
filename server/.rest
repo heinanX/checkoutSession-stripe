@@ -1,15 +1,28 @@
-### GET USERS
+### GET CUSTOMERS
 GET http://localhost:3000/api/users
 
+### LOGIN CUSTOMER
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
 
-### POST A USER
+{
+    "email": "sara@sarasson.se",
+    "password": "12345"
+}
+
+### LOGOUT CUSTOMER
+POST http://localhost:3000/api/users/logout
+Content-Type: application/json
+
+
+### CREATE A USER
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "email": "ti@gmail.com",
-    "password": "hej",
-    "description": "tessi"
+    "email": "koda@kodak.com",
+    "password": "12345",
+    "description": "Koda"
 }
 
 
@@ -30,3 +43,8 @@ GET http://localhost:3000/api/orders
 
 ### POST AN ORDER
 POST http://localhost:3000/api/oders
+Content-Type: application/json
+
+{
+
+}
