@@ -1,17 +1,6 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
+import { UserContext } from "../interfaces/interfaces";
 
-export interface User {
-  username: string,
-  password: string,
-  email: string,
-}
-
-export interface UserContext {
-    loginVisibility: boolean
-    setLoginVisibility: React.Dispatch<React.SetStateAction<boolean>>
-    signUpVisibility: boolean
-    setSignUpVisibility: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 const defaultValues = {
     loginVisibility: false,

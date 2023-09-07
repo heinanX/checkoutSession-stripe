@@ -15,7 +15,6 @@ const Main = () => {
   }, [])
 
   useEffect(() => {
-    console.log(products)
     setLoading(false)
   }, [products])
 
