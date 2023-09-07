@@ -1,6 +1,12 @@
+import Header from "../components/Header/Header"
+import OrderSuccess from "../components/OrderSuccess/OrderSuccess"
+
 const success = () => {
   return (
-    <div>success</div>
+    <>
+    <Header />
+    <OrderSuccess />
+    </>
   )
 }
 

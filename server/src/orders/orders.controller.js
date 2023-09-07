@@ -14,6 +14,7 @@ const createOrder = async (req, res) => {
         payment_method_types:['card'],
         mode: 'payment',
         currency: 'sek',
+        customer: 'cus_OapDRRmPVvFcff',
         line_items: [{  
             price: 'price_1NmYBHBcsMmryWv0wEimPZQt',
             quantity: 2
