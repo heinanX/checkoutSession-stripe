@@ -10,14 +10,16 @@ const Header = () => {
   }
 
   async function handlePayment() {
-    const response = await fetch(
+    console.log('button is up and running');
+    
+/*     const response = await fetch(
       "http://localhost:3000/create-checkout",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(''),
+        body: JSON.stringify(['']),
       }
     );
 
@@ -29,7 +31,7 @@ const Header = () => {
     console.log('hello');
     
     
-    window.location = url;
+    window.location = url; */
 
   }
 
@@ -39,7 +41,7 @@ const Header = () => {
 
       <div className='header--div'>
         <button onClick={showLogin}>Log in</button>
-        <button onClick={ handlePayment }>Basket</button>
+        <button className='buyBtn' onClick={ handlePayment }> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{width:'18px', margin: 0}} /> Buy now</button>
       </div>
       {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
 
