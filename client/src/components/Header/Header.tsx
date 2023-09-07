@@ -46,20 +46,26 @@ const Header = () => {
   }
 
   return (
-    <header>
-  
-      <img src="../../../../src/assets/coolspecs-logo.png" style={{ width: '300px' }} />
+<header>
+      <div className="upper--header">
+        <div className='btns--div'>
+          <button className="btn" onClick={showLogin}>Log in</button>
+          <div>
+            <button className='buyBtn btn' onClick={handlePayment}> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
+            {cart.length != 0 ? <p className='cartIndicator'>{cartCounter()}</p> : <></>}
+          </div>
 
-      <div className='header--div'>
-        <button onClick={showLogin}>Log in</button>
-        <div>
-          <button className='buyBtn' onClick={handlePayment}> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
-          {cart.length != 0 ? <p className='cartIndicator'>{cartCounter()}</p> : <></>}
         </div>
-
+        <img src="../../../../src/assets/coolspecs-logo.png" style={{ width: '300px' }} />
       </div>
+      <nav className='lower--header'>
+        <ul>
+          <li className='fakeBtn'>Account settings</li>
+          <li className='fakeBtn'>Browse section</li>
+          <li className='fakeBtn'>Contact us</li>
+        </ul>
+      </nav>
       {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
-
     </header>
   )
 }
