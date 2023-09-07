@@ -1,6 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 const fs = require('fs')
-const bcrypt = require('bcrypt')
 
 const getUsers = async (req, res) => {
   try {
