@@ -3,12 +3,29 @@ import Announcement from '../Announcement/Announcement'
 import './Main.css'
 import { useSocket } from '../../context/productContext'
 import Products from '../Products/Products'
+import { Cart } from '../../interfaces/interfaces'
 
 const Main = () => {
 
-  const { products, getProducts} = useSocket()
+  const { products, getProducts, setCart} = useSocket()
   const [loading, setLoading] = useState(true);
   
+  const setCartFromLS = () => {
+    const cartData = localStorage.getItem("cart");
+  
+    if (cartData !== null) {
+      const oldItems = JSON.parse(cartData) as Cart[];
+      setCart(oldItems);
+    } else {
+      localStorage.setItem("cart", JSON.stringify([]));
+    }
+  }
+  
+
+useEffect(() => {
+    setCartFromLS();
+  }, []);
+
   // useEffect initiate function on mount
   useEffect(()=> {
     getProducts()

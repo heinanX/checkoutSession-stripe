@@ -9,7 +9,7 @@ interface ProductProps {
 const Products = ({ productData }: ProductProps ) => {
 
     const { addToCart } = useSocket()
-
+    
     return (
         <li>
             <img className='productImage' src={productData.images[0]} alt={productData.name} />

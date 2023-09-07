@@ -4,10 +4,10 @@ export interface ProductContext {
     products: Product[]
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>
     getProducts: () => void
-    addToCart: (productData: object) => void
+    addToCart: (productData: Product) => void
 /*     addToCart: (productDefaultPrice: string) => void */
-    cart: object[],
-    setCart: React.Dispatch<React.SetStateAction<object[]>>
+    cart: Cart[],
+    setCart: React.Dispatch<React.SetStateAction<Cart[]>>
 }
 
 //# INTERFACE FOR USER CONTEXT
@@ -32,7 +32,7 @@ export interface Product {
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
 export interface Cart {
-    product: Product,
+    product: Product[],
     quantity: number
 }
 

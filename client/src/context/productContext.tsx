@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
-import { Product, ProductContext } from "../interfaces/interfaces";
+import { Cart, Product, ProductContext } from "../interfaces/interfaces";
 
 const defaultValues = {
   products: [],
@@ -18,8 +18,7 @@ export const useSocket = () => useContext(ProductContextValues)
 
 function ProductProvider({ children }: PropsWithChildren) {
   const [products, setProducts] = useState<Product[]>([])
-  const [ cart, setCart ] = useState<object[]>([])
-  const basket: object[] = []
+  const [cart, setCart] = useState<Cart[]>([])
 
   // FUNCTION THAT FETCHES PRODUCTS FROM STRIPE
   const getProducts = async () => {
@@ -30,13 +29,31 @@ function ProductProvider({ children }: PropsWithChildren) {
   }
 
   // FUNCTION THAT ADDS PRODUCTS TO CART
-  const addToCart = (productData: object) => {
-    //console.log(productData)
-    basket.push(productData)
-    console.log(basket);
-    
+  const addToCart = (productData: Product) => {
+    const duplicateProduct = cart.find((cartItem) => {
+      return cartItem.product.some((product) => product.id === productData.id);
+    });
 
-  }
+    if (duplicateProduct) {
+      duplicateProduct.quantity += 1;
+      setCart([...cart]);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      //console.log('increment item', cart);
+    } else {
+      const updatedCart = [
+        ...cart,
+        {
+          product: [productData],
+          quantity: 1,
+        },
+      ];
+      setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      //console.log('item added ', updatedCart);
+    }
+  };
+
+
 
   return (
     <ProductContextValues.Provider value={{
