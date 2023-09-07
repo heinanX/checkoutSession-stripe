@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import Announcement from '../Announcement/Announcement'
 import './Main.css'
-import { useSocket } from '../../context/productContext'
+import { useSocket_products } from '../../context/productContext'
 import Products from '../Products/Products'
 import { Cart } from '../../interfaces/interfaces'
 
 const Main = () => {
 
-  const { products, getProducts, setCart} = useSocket()
+  const { products, getProducts, setCart} = useSocket_products()
   const [loading, setLoading] = useState(true);
   
   const setCartFromLS = () => {

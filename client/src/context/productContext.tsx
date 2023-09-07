@@ -12,7 +12,7 @@ const defaultValues = {
 
 export const ProductContextValues = createContext<ProductContext>(defaultValues)
 // eslint-disable-next-line react-refresh/only-export-components
-export const useSocket = () => useContext(ProductContextValues)
+export const useSocket_products = () => useContext(ProductContextValues)
 
 //---------------------- Provider begins here
 

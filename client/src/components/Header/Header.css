@@ -4,8 +4,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: #00AC8E; */
-    background-color: #74695d;
+/*     background-color: #5c926a; */
+    /* background-color: #74695d; */
+    /* background-color: #307596; */
+    border: 2px solid #b4cece;
 }
 
 .header--div {
@@ -18,6 +20,7 @@ button {
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 }
 
 button:hover {
@@ -29,4 +32,25 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     gap: 5px;
+}
+
+.header--div > div {
+    position: relative;
+}
+
+.cartIndicator {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 3px;
+    left: 10px;
+    font-size: smaller;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(240, 228, 123);
+    box-shadow: 2px 2px rgb(190, 183, 112);
+    cursor: default;
+
+    border-radius: 10px;
 }

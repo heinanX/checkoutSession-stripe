@@ -1,5 +1,5 @@
 import './Products.css'
-import { useSocket } from '../../context/productContext'
+import { useSocket_products } from '../../context/productContext'
 import { Product } from '../../interfaces/interfaces'
 
 interface ProductProps {
@@ -8,7 +8,7 @@ interface ProductProps {
 
 const Products = ({ productData }: ProductProps ) => {
 
-    const { addToCart } = useSocket()
+    const { addToCart } = useSocket_products()
     
     return (
         <li>
