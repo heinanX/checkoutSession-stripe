@@ -1,19 +1,25 @@
-.productlist  > ul {
+.productList {
     display: flex;
+    align-items: center;
+}
+
+.productList  > ul {
+    display: flex;
+    flex-wrap: wrap;
     gap: 5px;
     padding: 10px 10px;
 }
 
-.productlist li {
-    min-height: 6em;
-    min-width: 6em;
-    max-height: 20em;
-    max-width: 20em;
+.productList li {
+/*     max-height: 20em; */
+    max-width: 30em;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 10px;
 
     border: 1px solid slateblue;
+    text-align: center;
 }

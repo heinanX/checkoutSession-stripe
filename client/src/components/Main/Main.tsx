@@ -6,40 +6,32 @@ import Products from '../Products/Products'
 
 const Main = () => {
 
-  const { products, setProducts} = useSocket()
-  const [loading, setLoading] = useState(false);
+  const { products, getProducts} = useSocket()
+  const [loading, setLoading] = useState(true);
   
-  const fetchData = async () => {
-    const res = await fetch('http://localhost:3000/api/products')
-    const response = await res.json();
-    
-    setProducts(response.productinfo)
-  }
-
   // useEffect initiate function on mount
   useEffect(()=> {
-    fetchData()
+    getProducts()
   }, [])
 
   useEffect(() => {
     console.log(products)
-    setLoading(true)
+    setLoading(false)
   }, [products])
 
   return (
     <main>
       <img src="../../../../src/assets/ad-Capture.PNG" style={{ width: '100%', display: 'block' }} />
       <Announcement />
-
-      <div className="productlist">
+      <div className="productList">
         {loading ? (
-          <ul>
-            {products.map((element) => (
-              <Products key={element.id} productData={element} />
-            ))}
-          </ul>
-        ) : (
           <p>Loading products...</p>
+        ) : (
+          <ul>
+          {products.map((element) => (
+            <Products key={element.id} productData={element} />
+          ))}
+        </ul>
         )}
       </div>
     </main>
