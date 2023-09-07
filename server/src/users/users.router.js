@@ -1,9 +1,11 @@
 const express = require('express');
-const { getUsers, createUser } = require('./users.controller')
-const { hashPasses } = require('../middlewares')
+const { getUsers, createUser, loginUser, logOutUser } = require('./users.controller')
+const { hashPass, unhashPass } = require('../middlewares')
 
 const userRouter = express.Router()
 .get('/users', getUsers)
-.post('/users', hashPasses, createUser)
+.post('/users', hashPass, createUser)
+.post('/users/login', unhashPass, loginUser)
+.post('/users/logout', logOutUser)
 
 module.exports = { userRouter }

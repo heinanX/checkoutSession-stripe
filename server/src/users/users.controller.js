@@ -1,5 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 const fs = require('fs')
+const bcrypt = require('bcrypt')
 
 const getUsers = async (req, res) => {
   try {
@@ -10,6 +11,25 @@ const getUsers = async (req, res) => {
     } catch (error) {
       console.error(error);
     }
+}
+
+const loginUser = (req, res) => {
+  const { email} = req.body
+
+  if (req.session.email) {
+    return res.status(200).json(email);
+  }
+
+  req.session.email = email
+  res.status(200).json({ email })
+}
+
+const logOutUser = (req, res) => {
+  if (!req.session.email) {
+    return res.status(400).json("Cannot logout when you are not logged in");
+  }
+  req.session.email = null;
+  res.status(200).json({ message: 'Logged out'});
 }
 
 const createUser = async (req, res) => {
@@ -41,4 +61,4 @@ const createUser = async (req, res) => {
   }
 }
 
-module.exports = { getUsers, createUser }
+module.exports = { getUsers, createUser, loginUser, logOutUser }

@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-//const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
+const cookieSession = require('cookie-session')
 const { productRouter } = require('./src/products/products.router')
 const { userRouter } = require('./src/users/users.router')
 
@@ -11,6 +11,17 @@ app.use(express.json());
 app.use(
   cors({
     origin: "*",
+  })
+);
+
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["aVeryS3cr3tK3y"],
+    maxAge: 1000 * 60 * 60 * 24, // 24 Hours
+    sameSite: "strict",
+    httpOnly: true,
+    secure: false,
   })
 );
 
