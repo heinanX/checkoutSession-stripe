@@ -18,5 +18,17 @@
   {
     "email": "ti@gmail.com",
     "password": "$2b$10$7jzKjnCwMmgwwu1m71jq4eqQCLMuAgiT47s76Cbt3eO6D4HHho4tO"
+  },
+  {
+    "email": "linda@eskilsson.se",
+    "password": "$2b$10$hk7KvH0CNxMEgTH8xhSAvenxS4RRyZrBWTjNFCDCf8jBrGtfGHjqa"
+  },
+  {
+    "email": "sara@sarasson.se",
+    "password": "$2b$10$9MXerxADvpODO3gdoCUpLuO/PhdQTZsQRq/goE/bNFkewmgdj01te"
+  },
+  {
+    "email": "sara@sarasson.se",
+    "password": "$2b$10$LPQLekU3N4Ku1Vfype89auOfF9p2E3MD7vVv4g.Jaysvx2BnrWoq2"
   }
 ]

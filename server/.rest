@@ -1,5 +1,8 @@
-### GET USERS
+### GET CUSTOMERS
 GET http://localhost:3000/api/users
+
+### LOGIN CUSTOMER
+POST http://localhost:3000/api/users/login
 
 
 ### POST A USER
@@ -7,9 +10,9 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "email": "ti@gmail.com",
-    "password": "hej",
-    "description": "tessi"
+    "email": "sara@sarasson.se",
+    "password": "12345",
+    "description": "Sara"
 }
 
 

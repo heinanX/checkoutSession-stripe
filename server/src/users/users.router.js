@@ -7,5 +7,3 @@ const userRouter = express.Router()
 .post('/users', hashPasses, createUser)
 
 module.exports = { userRouter }
-
-module.exports = { userRouter }
