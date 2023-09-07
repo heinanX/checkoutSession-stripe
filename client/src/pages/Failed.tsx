@@ -1,10 +1,12 @@
 import Header from "../components/Header/Header"
+import OrderFailed from "../components/OrderFailed/OrderFailed"
 
 const failed = () => {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <OrderFailed />
+    </>
   )
 }
 

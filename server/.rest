@@ -42,9 +42,6 @@ GET http://localhost:3000/api/orders
 
 
 ### POST AN ORDER
-POST http://localhost:3000/api/oders
+POST http://localhost:3000/api/create-checkout-session
 Content-Type: application/json
 
-{
-
-}

@@ -4,6 +4,7 @@ const cors = require('cors');
 const cookieSession = require('cookie-session')
 const { productRouter } = require('./src/products/products.router')
 const { userRouter } = require('./src/users/users.router')
+const { orderRouter } = require('./src/orders/orders.router')
 
 const app = express();
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use(
 
 app.use('/api', productRouter)
 app.use('/api', userRouter)
+app.use('/api', orderRouter)
 
 /* app.get('/', (req, res) => {
     res.send('hello world again');
