@@ -18,6 +18,9 @@ export interface UserContext {
     setLoginVisibility: React.Dispatch<React.SetStateAction<boolean>>
     signUpVisibility: boolean
     setSignUpVisibility: React.Dispatch<React.SetStateAction<boolean>>
+    isLoggedIn: boolean
+    setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
+    login: (mail: string, pass: string) => Promise<void>
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE

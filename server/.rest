@@ -6,7 +6,7 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "sara@sarasson.se",
+    "email": "koda@kodak.com",
     "password": "12345"
 }
 
