@@ -1,6 +1,6 @@
 import { useSocket } from "../../context/userContext"
-import LoginForm from "../LoginForm/LoginForm"
-import SignUpForm from "../SignUpForm/SignUpForm"
+import LoginForm from "../Forms/LoginForm/LoginForm"
+import SignUpForm from "../Forms/SignUpForm/SignUpForm"
 import './PopUp.css'
 
 const PopUp = () => {

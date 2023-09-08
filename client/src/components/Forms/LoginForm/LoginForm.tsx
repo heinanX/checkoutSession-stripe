@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useSocket } from '../../context/userContext'
-import BtnClose from '../BtnClose/BtnClose';
+import { useSocket } from '../../../context/userContext'
+import BtnClose from '../../_shared_components/BtnClose/BtnClose';
 import './LoginForm.css'
+import EmailInput from '../../_shared_components/Form_inputs/EmailInput';
+import PasswordInput from '../../_shared_components/Form_inputs/PasswordInput';
 
 const LoginForm = () => {
 
@@ -20,7 +22,6 @@ const LoginForm = () => {
         
         login(email, pass)
         
-   /*      login(event.target.mail.value ,event.target.psw.value) */
         
     }
 
@@ -32,19 +33,9 @@ const LoginForm = () => {
             </span>
 
             <BtnClose />
-            <input
-            type="text"
-            placeholder="Email"
-            name="mail"
-            onChange={(e) => {setEmail(e.target.value)}}
-            required />
+            <EmailInput setEmail={setEmail} />
 
-            <input
-            type="password"
-            placeholder="Password"
-            name="psw"
-            onChange={(e) => {setPass(e.target.value)}}
-            required />
+            <PasswordInput setPass={setPass} />
 
             <p>Need to <a onClick={switchForm}>sign up</a>?</p>
 

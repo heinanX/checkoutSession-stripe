@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header"
-import OrderSuccess from "../components/OrderSuccess/OrderSuccess"
+import OrderSuccess from "../components/Order_Success/OrderSuccess"
 
 const success = () => {
   return (
