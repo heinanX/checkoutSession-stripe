@@ -2,6 +2,7 @@ import { useSocket } from '../../context/userContext'
 import { useSocket_products } from '../../context/productContext'
 import PopUp from '../PopUp/PopUp'
 import './Header.css'
+import Announcement from '../Announcement/Announcement'
 
 const Header = () => {
 
@@ -47,6 +48,7 @@ const Header = () => {
 
   return (
 <header>
+<Announcement />
       <div className="upper--header">
         <div className='btns--div'>
           {!isLoggedIn ? <button className="btn" onClick={showLogin}>Log in</button> : <></>}
@@ -60,12 +62,13 @@ const Header = () => {
       </div>
       <nav className='lower--header'>
         <ul>
-          {isLoggedIn ?  <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <li className='fakeBtn'>Account settings</li>}
           <li className='fakeBtn'>Browse section</li>
           <li className='fakeBtn'>Contact us</li>
+          {isLoggedIn ?  <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <><li>Sign into Account</li></>}
         </ul>
       </nav>
       {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
+
     </header>
   )
 }

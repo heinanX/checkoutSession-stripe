@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Announcement from '../Announcement/Announcement'
+//import Announcement from '../Announcement/Announcement'
 import './Main.css'
 import { useSocket_products } from '../../context/productContext'
 import Products from '../Products/Products'
@@ -38,7 +38,7 @@ useEffect(() => {
   return (
     <main>
       <img src="../../../../src/assets/ad-Capture.PNG" style={{ width: '100%', display: 'block' }} />
-      <Announcement />
+{/*       <Announcement /> */}
       <div className="productList">
         {loading ? (
           <p>Loading products...</p>
