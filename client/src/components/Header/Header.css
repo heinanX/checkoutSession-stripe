@@ -86,9 +86,3 @@ header {
     color: #b4cece;
     cursor: pointer;
 }
-
-.accountBtn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}

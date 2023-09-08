@@ -1,0 +1,36 @@
+.accountBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.account-menu {
+    background-color: rgb(251, 255, 253);
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: smaller;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 5px #677469;
+    box-shadow: 0 0 5px #677469;
+/*     box-shadow: 3px 3px 3px -3px #999, 3px 3px 3px -3px #999, -3px 3px 3px -3px #999 */
+}
+
+.account-menu li {
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-wrap: nowrap;
+    text-align: end;
+}
+
+/* .account-menu li:last-child {
+    padding-bottom: 8px;
+} */
+
+.account-menu li:hover {
+    background-color: rgb(202, 202, 202);
+}

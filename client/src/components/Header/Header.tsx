@@ -4,6 +4,7 @@ import PopUp from '../PopUp/PopUp'
 import './Header.css'
 import Announcement from '../Announcement/Announcement'
 import { Link } from 'react-scroll'
+import Dropdown_MyAccount from '../_shared_components/Dropdown_MyAccount/Dropdown_MyAccount'
 
 const Header = () => {
 
@@ -60,7 +61,8 @@ const Header = () => {
               </Link></li>
             <li className='fakeBtn'>About us</li>
             <li className='fakeBtn'>Contact us</li>
-            {isLoggedIn ? <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <></>}
+            {/* {isLoggedIn ? <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <></>} */}
+            <Dropdown_MyAccount />
           </ul>
           <div className='btns--div'>
             {!isLoggedIn ? <button className="btn" onClick={showLogin}>Log in</button> : <></>}
