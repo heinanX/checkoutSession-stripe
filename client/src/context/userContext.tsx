@@ -1,5 +1,6 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { UserContext } from "../interfaces/interfaces";
+import Cookies from 'js-cookie';
 
 
 const defaultValues = {
@@ -27,7 +28,7 @@ function UserProvider({ children }: PropsWithChildren) {
   // #LOG IN FUNCTION THAT TAKES IN 2 STRINGS FROM COMPONENT LOGINFORM
   const login = async (mail: string, pass: string) => {
     try {
-      const res = await fetch('http://localhost:3000/api/users/login',
+      const res = await fetch('/api/users/login',
         {
           method: 'POST',
           headers: {
@@ -57,7 +58,7 @@ function UserProvider({ children }: PropsWithChildren) {
 
   const signUp = async (uname: string, mail: string, pass: string) => {
     try {
-      const res = await fetch('http://localhost:3000/api/users/sign-up',
+      const res = await fetch('/api/users/sign-up',
         {
           method: 'POST',
           headers: {
@@ -72,10 +73,16 @@ function UserProvider({ children }: PropsWithChildren) {
       if (res.ok) {
         // Handle successful login here, e.g., set isLoggedIn to true
         console.log('customer ', mail, ' has been created');
-
+        
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
         login(mail, pass)
+        
+        if (Cookies.get('session')) {
+          // The cookie exists, you can proceed to use its value
+        } else {
+          // The cookie doesn't exist
+        }
 
       } else {
         // Handle login error, e.g., show an error message
