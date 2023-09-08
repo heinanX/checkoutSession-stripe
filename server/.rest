@@ -16,13 +16,13 @@ Content-Type: application/json
 
 
 ### CREATE A USER
-POST http://localhost:3000/api/users
+POST http://localhost:3000/api/users/sign-up
 Content-Type: application/json
 
 {
-    "email": "koda@kodak.com",
+    "email": "larrii@live.se",
     "password": "12345",
-    "description": "Koda"
+    "description": "Linda"
 }
 
 

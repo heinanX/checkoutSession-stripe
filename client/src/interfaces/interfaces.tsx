@@ -21,6 +21,7 @@ export interface UserContext {
     isLoggedIn: boolean
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
     login: (mail: string, pass: string) => Promise<void>
+    signUp: (uname: string, mail: string, pass: string) => Promise<void>
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE

@@ -7,7 +7,7 @@ import './SignUpForm.css'
 
 const SignUpForm = () => {
 
-  const { setLoginVisibility, setSignUpVisibility } = useSocket()
+  const { setLoginVisibility, setSignUpVisibility, signUp } = useSocket()
 
   const [uname, setUname] = useState('')
   const [email, setEmail] = useState('')
@@ -22,7 +22,7 @@ const SignUpForm = () => {
     e.preventDefault();
     console.log(uname, email, pass);
 
-    //signUp(name, email, pass)
+    signUp(uname, email, pass)
 
 
   }
