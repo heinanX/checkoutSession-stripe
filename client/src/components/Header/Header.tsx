@@ -5,7 +5,7 @@ import './Header.css'
 
 const Header = () => {
 
-  const { loginVisibility, signUpVisibility, setLoginVisibility } = useSocket()
+  const { loginVisibility, signUpVisibility, setLoginVisibility, isLoggedIn } = useSocket()
   const { cart } = useSocket_products()
   const showLogin = () => {
     setLoginVisibility(true)
@@ -49,7 +49,7 @@ const Header = () => {
 <header>
       <div className="upper--header">
         <div className='btns--div'>
-          <button className="btn" onClick={showLogin}>Log in</button>
+          {!isLoggedIn ? <button className="btn" onClick={showLogin}>Log in</button> : <></>}
           <div>
             <button className='buyBtn btn' onClick={handlePayment}> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
             {cart.length != 0 ? <p className='cartIndicator'>{cartCounter()}</p> : <></>}
@@ -60,7 +60,7 @@ const Header = () => {
       </div>
       <nav className='lower--header'>
         <ul>
-          <li className='fakeBtn'>Account settings</li>
+          {isLoggedIn ?  <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <li className='fakeBtn'>Account settings</li>}
           <li className='fakeBtn'>Browse section</li>
           <li className='fakeBtn'>Contact us</li>
         </ul>

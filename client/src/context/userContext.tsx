@@ -32,7 +32,7 @@ function UserProvider({ children }: PropsWithChildren) {
       },
       body: JSON.stringify({
         email: mail,
-        pass: pass 
+        password: pass 
       })
     })
     if (res.ok) {
@@ -42,9 +42,12 @@ function UserProvider({ children }: PropsWithChildren) {
       loginVisibility ? setLoginVisibility(false) : null
       signUpVisibility ? setSignUpVisibility(false) : null
 
+    } else {
+      // Handle login error, e.g., show an error message
+      alert('incorrect mail or password');
     }
   } catch (error) {
-    alert('incorrect mail or password');
+      console.log('loginFailed');
       
   }
   }
