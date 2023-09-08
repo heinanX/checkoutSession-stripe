@@ -19,17 +19,17 @@ const SignUpForm = () => {
       </span>
 
       <BtnClose />
-      {/* <label><b>Username</b></label> */}
-      <input type="text" placeholder="Enter Username" name="uname" required />
-
-      {/* <label><b>Password</b></label> */}
-      <input type="password" placeholder="Enter Password" name="psw" required />
       
-      <input type="mail" placeholder="Enter Mail" name="mail" required />
+        <input type="text" placeholder="Enter Name" name="uname" required />
 
-      <p>Happened here by mistake? <a onClick={switchForm}>Login here</a></p>
+        <input type="mail" placeholder="Enter Mail" name="mail" required />
 
-      <button className='signUp--btn' type="submit">create</button>
+        <input type="password" placeholder="Enter Password" name="psw" required />
+        
+
+        <p>Already a customer? <a onClick={switchForm}>Login here</a></p>
+
+        <button className='signUp--btn' >create</button>
     </div>
   )
 }

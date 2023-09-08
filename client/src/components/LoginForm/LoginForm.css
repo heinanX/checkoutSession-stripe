@@ -2,6 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 
     background-color: rgb(74, 148, 134);
@@ -26,12 +27,17 @@
 .loginForm > p {
     font-size: small;
     text-align: center;
-
+    color: rgb(236, 254, 249);
 }
 
 .login--btn {
+    min-width: 11em;
     margin-top: 2em;
-
+    border-radius: 1em;
+    outline: none;
+    border: none;
+    padding: 5px 0;
+    background-color: rgb(242, 232, 138);
 }
 
 .close-window {

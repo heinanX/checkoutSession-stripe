@@ -9,7 +9,7 @@ const BtnClose = () => {
         if (signUpVisibility == true) { setSignUpVisibility(false)}
     }
   return (
-    <button className='close-window' onClick={closeWindow}>X</button>
+    <button className='close-window btn' onClick={closeWindow}>X</button>
   )
 }
 
