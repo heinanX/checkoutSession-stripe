@@ -36,7 +36,8 @@ useEffect(() => {
   }, [products])
 
   return (
-    <main>
+   
+    <main id='main'>
       <img src="../../../../src/assets/ad-Capture.PNG" style={{ width: '100%', display: 'block' }} />
 {/*       <Announcement /> */}
       <div className="productList">
@@ -51,6 +52,7 @@ useEffect(() => {
         )}
       </div>
     </main>
+
   );
 };
 
