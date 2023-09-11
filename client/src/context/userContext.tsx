@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { UserContext } from "../interfaces/interfaces";
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 
 const defaultValues = {
@@ -10,10 +11,9 @@ const defaultValues = {
   setSignUpVisibility: () => { },
   isLoggedIn: false,
   setIsLoggedIn: () => { },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   login: async (mail: string, pass: string) => { },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  signUp: async (uname: string, mail: string, pass: string) => { }
+  signUp: async (uname: string, mail: string, pass: string) => { },
+  logOut: async () => {  }
 }
 
 export const UserContextValues = createContext<UserContext>(defaultValues)
@@ -78,11 +78,11 @@ function UserProvider({ children }: PropsWithChildren) {
         signUpVisibility ? setSignUpVisibility(false) : null
         login(mail, pass)
         
-        if (Cookies.get('session')) {
+/*         if (Cookies.get('session')) {
           // The cookie exists, you can proceed to use its value
         } else {
           // The cookie doesn't exist
-        }
+        } */
 
       } else {
         // Handle login error, e.g., show an error message
@@ -91,6 +91,22 @@ function UserProvider({ children }: PropsWithChildren) {
     } catch (error) {
       console.log('Sign up failed');
     }
+  }
+
+  const logOut = async () => {
+    const res = await fetch('api/users/logout', {
+      method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({})
+    })
+
+    const data = await res.json()
+    console.log(data);
+    
+    setIsLoggedIn(false)
+
   }
 
 
@@ -103,7 +119,8 @@ function UserProvider({ children }: PropsWithChildren) {
       isLoggedIn,
       setIsLoggedIn,
       login,
-      signUp
+      signUp,
+      logOut
     }}>
       {children}
     </UserContextValues.Provider>
