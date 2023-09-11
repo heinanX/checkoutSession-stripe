@@ -40,6 +40,7 @@ useEffect(() => {
     <main id='main'>
       <img src="../../../../src/assets/ad-Capture.PNG" style={{ width: '100%', display: 'block' }} />
 {/*       <Announcement /> */}
+      <h2 style={{ textAlign: 'center', letterSpacing: '10px', textTransform: 'uppercase', padding: '1em 0'}}>Featured Products:</h2>
       <div className="productList">
         {loading ? (
           <p>Loading products...</p>
