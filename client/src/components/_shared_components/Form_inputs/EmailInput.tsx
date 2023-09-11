@@ -7,7 +7,8 @@ const EmailInput = ({ setEmail }: { setEmail: React.Dispatch<React.SetStateActio
             placeholder="Email"
             name="mail"
             onChange={(e) => { setEmail(e.target.value) }}
-            required />
+            required
+        />
     )
 }
 

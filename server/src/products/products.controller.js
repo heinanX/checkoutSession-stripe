@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 const getProducts = async (req, res) => {
     try {
         const products = await stripe.products.list();
-        console.log(products.data); // An array of product objects
+        //console.log(products.data); // An array of product objects
         const productinfo = products.data
         res.status(200).json({ productinfo })
 
