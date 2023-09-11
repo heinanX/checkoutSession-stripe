@@ -29,9 +29,11 @@ Content-Type: application/json
 ### GET PRODUCTS
 GET http://localhost:3000/api/products
 
-
 ### GET SPECIFIC PRODUCT
 GET http://localhost:3000/api/products/prod_OZhAh5rhAVoVSO
+
+### GET PRODUCT PRICE
+GET http://localhost:3000/api/products/price/price_1NmY7gBcsMmryWv0LEiwVuLz
 
 ### POST PRODUCT
 POST http://localhost:3000/api/products
