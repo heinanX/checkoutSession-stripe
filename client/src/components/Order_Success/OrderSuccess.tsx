@@ -1,16 +1,16 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import './OrderSuccess.css'
 
 const OrderSuccess = () => {
-    const [fetchedData, setFetchedData] = useState()
+    /* const [fetchedData, setFetchedData] = useState() */
 
-    const fetchOrderId = async () => {
+/*     const fetchOrderId = async () => {
         
 
         const res = await fetch('/api/create-checkout-session')
         const data = await res.json()
         setFetchedData(data)
-    }
+    } */
 
     return (
         <div className='orderSuccess'>

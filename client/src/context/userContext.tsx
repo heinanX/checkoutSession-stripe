@@ -1,5 +1,6 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { UserContext } from "../interfaces/interfaces";
+import Cookies from 'js-cookie';
 
 
 const defaultValues = {
@@ -8,9 +9,11 @@ const defaultValues = {
   signUpVisibility: false,
   setSignUpVisibility: () => { },
   isLoggedIn: false,
-  setIsLoggedIn: () => {  },
+  setIsLoggedIn: () => { },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  login: async (mail: string, pass: string) => {}
+  login: async (mail: string, pass: string) => { },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  signUp: async (uname: string, mail: string, pass: string) => { }
 }
 
 export const UserContextValues = createContext<UserContext>(defaultValues)
@@ -21,36 +24,75 @@ function UserProvider({ children }: PropsWithChildren) {
   const [signUpVisibility, setSignUpVisibility] = useState<boolean>(false)
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
-  const login = async ( mail: string, pass: string) => {
-    try {
-    
-    const res = await fetch('http://localhost:3000/api/users/login',
-    {
-      method:'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: mail,
-        password: pass 
-      })
-    })
-    if (res.ok) {
-      // Handle successful login here, e.g., set isLoggedIn to true
-      console.log(mail, ' has logged in');
-      setIsLoggedIn(true);
-      loginVisibility ? setLoginVisibility(false) : null
-      signUpVisibility ? setSignUpVisibility(false) : null
 
-    } else {
-      // Handle login error, e.g., show an error message
-      alert('incorrect mail or password');
-    }
-  } catch (error) {
+  // #LOG IN FUNCTION THAT TAKES IN 2 STRINGS FROM COMPONENT LOGINFORM
+  const login = async (mail: string, pass: string) => {
+    try {
+      const res = await fetch('/api/users/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: mail,
+            password: pass
+          })
+        })
+      if (res.ok) {
+        // Handle successful login here, e.g., set isLoggedIn to true
+        console.log(mail, ' has logged in');
+        setIsLoggedIn(true);
+        loginVisibility ? setLoginVisibility(false) : null
+        signUpVisibility ? setSignUpVisibility(false) : null
+
+      } else {
+        // Handle login error, e.g., show an error message
+        alert('incorrect mail or password');
+      }
+    } catch (error) {
       console.log('loginFailed');
-      
+
+    }
   }
+
+  const signUp = async (uname: string, mail: string, pass: string) => {
+    try {
+      const res = await fetch('/api/users/sign-up',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: mail,
+            password: pass,
+            description: uname
+          })
+        })
+      if (res.ok) {
+        // Handle successful login here, e.g., set isLoggedIn to true
+        console.log('customer ', mail, ' has been created');
+        
+        loginVisibility ? setLoginVisibility(false) : null
+        signUpVisibility ? setSignUpVisibility(false) : null
+        login(mail, pass)
+        
+        if (Cookies.get('session')) {
+          // The cookie exists, you can proceed to use its value
+        } else {
+          // The cookie doesn't exist
+        }
+
+      } else {
+        // Handle login error, e.g., show an error message
+        alert('missing a field');
+      }
+    } catch (error) {
+      console.log('Sign up failed');
+    }
   }
+
 
   return (
     <UserContextValues.Provider value={{
@@ -60,7 +102,8 @@ function UserProvider({ children }: PropsWithChildren) {
       setSignUpVisibility,
       isLoggedIn,
       setIsLoggedIn,
-      login
+      login,
+      signUp
     }}>
       {children}
     </UserContextValues.Provider>

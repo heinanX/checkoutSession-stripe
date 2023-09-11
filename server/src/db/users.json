@@ -6,5 +6,13 @@
   {
     "email": "koda@kodak.com",
     "password": "$2b$10$FaSgA3YlJNOMHiBz.0gPau0yf1IdR839Yaw5hVnYWa89L3zi.7pcC"
+  },
+  {
+    "email": "larrii@live.se",
+    "password": "$2b$10$t8z8kyuuZNvVbucTGFWefeOvHdcsqF6t3CMyOtq19gLj1z6wdjfMy"
+  },
+  {
+    "email": "abcd@gmail.com",
+    "password": "$2b$10$BTcVEuuKW8ZAXppTHyRJs.S4DIwt/v8hxWLqhBY.HyjSxBkuG1PaS"
   }
 ]
