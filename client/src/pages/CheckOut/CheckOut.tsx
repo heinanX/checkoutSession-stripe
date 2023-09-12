@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import OrderReview from "../../components/OrderReview/OrderReview";
 import "./CheckOut.css";
-import { useSocket_products } from "../../context/productContext";
+import { useSocket as useSocketProducts } from "../../context/productContext";
 
 const CheckOut = () => {
 
   //const getItemsFromLS = JSON.parse(localStorage.getItem('cart'))
-  const { setCartFromLS, cart } = useSocket_products()
+  const { setCartFromLS, cart } = useSocketProducts()
 
   useEffect(() => {
     setCartFromLS()

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 //import { useEffect, useState } from 'react';
 import './Products.css';
-import { useSocket_products } from '../../context/productContext';
+import { useSocket as useSocketProducts } from '../../context/productContext';
 import { ProductProps } from '../../interfaces/interfaces';
 
 
 const Products = ({ productData }: ProductProps) => {
-    const { addToCart } = useSocket_products();
+    const { addToCart } = useSocketProducts();
     //const [price, setPrice] = useState<number | null>(null);
 
 /* 
