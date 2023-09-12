@@ -44,6 +44,7 @@ function UserProvider({ children }: PropsWithChildren) {
         // Handle successful login here, e.g., set isLoggedIn to true
         console.log(mail, ' has logged in');
         setIsLoggedIn(true);
+        localStorage.setItem('user',(mail))
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
 
@@ -112,19 +113,21 @@ function UserProvider({ children }: PropsWithChildren) {
       console.log(error);
 
     }
-
-
   }
 
   const checkLoginStatus = async () => {
+    try {
+      
+
     const res = await fetch('api/users/authorize')
     const data = await res.json()
     if (res.ok) {
       setIsLoggedIn(true)
-      localStorage.setItem('user', data)
-    } else {
-      return
+      !localStorage.getItem('user') ? localStorage.setItem('user', data) : null
     }
+  } catch (error) {
+      return 
+  }
   }
 
 
