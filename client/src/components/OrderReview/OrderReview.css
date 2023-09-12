@@ -39,5 +39,6 @@
 }
 .decreaseQuantity:hover,
 .increaseQuantity:hover {
+    color: whitesmoke;
     background-color: rgb(152, 165, 152);
 }

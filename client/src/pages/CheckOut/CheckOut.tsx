@@ -13,6 +13,17 @@ const CheckOut = () => {
 
   }, [])
 
+  const totalPrice = () => {
+    let num = 0;
+    cart.forEach((item) => {
+      item.product.forEach((cost) => {
+        const mult = item.quantity * parseInt(cost.default_price)
+        num += mult
+      })
+    })
+    return num;
+  }
+  
   return (
     <div className="checkout-page">
       <img className="checkout-banner" src="../../../../src/assets/checkout-banner.png" />
@@ -26,12 +37,14 @@ const CheckOut = () => {
 
           </ul>
           <hr style={{ width: '80%', borderColor: 'rgba(194, 213, 194, 0.5' }} />
+          <h4>Total: {totalPrice()}</h4>
           <button className="confirm-order-btn">Place Order</button>
         </div>
+        <Link to={'/'}>
+          <button className="leave-cart-btn">← back to store</button>
+        </Link>
       </div>
-      <Link to={'/'}>
-        <button className="leave-cart-btn">← back to store</button>
-      </Link>
+
     </div>
   );
 };

@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     padding-bottom: 50px;
 }
 
@@ -17,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .order-content h2 {
@@ -49,7 +49,7 @@
     background-color: rgba(194, 213, 194, 0.205);
     color: rgb(119, 131, 119);
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     left: 20px;
     padding: 5px 10px;
 }
@@ -71,5 +71,6 @@
 
 .leave-cart-btn:hover,
 .confirm-order-btn:hover {
-background-color: rgb(152, 165, 152);
+    color: whitesmoke;
+    background-color: rgb(152, 165, 152);
 }
