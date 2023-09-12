@@ -6,6 +6,7 @@ import Announcement from '../Announcement/Announcement'
 import { Link as ScrollLink } from 'react-scroll'
 import Dropdown_MyAccount from '../_shared_components/Dropdown_MyAccount/Dropdown_MyAccount'
 import { Link } from 'react-router-dom'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 const Header = () => {
 
@@ -43,7 +44,7 @@ const Header = () => {
             {!isLoggedIn ? <button className="btn" onClick={showLogin}>Log in</button> : <></>}
             <div className='cartIndicator-div'>
               <Link to={'/checkout'}>
-              <button className='buyBtn btn btn-style'> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
+              <button className='buyBtn btn btn-style'> <ShoppingCartIcon style={{ fontSize: '20px' }} /> Buy now</button>
               {cart.length != 0 ? <p className='cartIndicator'>{cartCounter()}</p> : <></>}
               </Link>
             </div>

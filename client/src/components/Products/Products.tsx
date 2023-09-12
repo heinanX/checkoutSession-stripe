@@ -3,7 +3,7 @@
 import './Products.css';
 import { useSocket as useSocketProducts } from '../../context/productContext';
 import { ProductProps } from '../../interfaces/interfaces';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 const Products = ({ productData }: ProductProps) => {
     const { addToCart } = useSocketProducts();
@@ -31,7 +31,7 @@ const Products = ({ productData }: ProductProps) => {
             <p className='product-description'>{productData.description}</p>
 
             <button className='add-product-to-cart-btn btn-style' onClick={() => addToCart(productData)}>
-            <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px' }} />
+            <ShoppingCartIcon style={{ fontSize: '18px'}} />
                     <p className='product-price'>{productData.default_price} kr</p>
 
             </button>

@@ -2,27 +2,20 @@ import { useEffect } from "react";
 import OrderReview from "../../components/OrderReview/OrderReview";
 import "./CheckOut.css";
 import { useSocket as useSocketProducts } from "../../context/productContext";
+import { Link } from "react-router-dom";
 
 const CheckOut = () => {
 
-  //const getItemsFromLS = JSON.parse(localStorage.getItem('cart'))
   const { setCartFromLS, cart } = useSocketProducts()
 
   useEffect(() => {
     setCartFromLS()
 
   }, [])
-  /* cart.forEach((cartItem) => {
-    cartItem.product.forEach((item) => {
-      console.log(item.id);
-    });
-  }); */
 
   return (
     <div className="checkout-page">
-      <img
-        className="checkout-banner" src="../../../../src/assets/checkout-banner.png" alt=""
-      />
+      <img className="checkout-banner" src="../../../../src/assets/checkout-banner.png" />
       <div className="order-content">
         <h2>Order review</h2>
         <div className="cart-review">
@@ -36,7 +29,9 @@ const CheckOut = () => {
           <button className="confirm-order-btn">Place Order</button>
         </div>
       </div>
-      <button className="leave-cart-btn" onClick={() => { window.location.href = 'http://localhost:5173' }}>← back to store</button>
+      <Link to={'/'}>
+        <button className="leave-cart-btn">← back to store</button>
+      </Link>
     </div>
   );
 };
