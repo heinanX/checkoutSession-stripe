@@ -2,11 +2,24 @@ const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 
 const getProducts = async (req, res) => {
     try {
-        const products = await stripe.products.list();
+      const productsArray = [];
+      const products = await stripe.products.list()
+      for (const product of products.data) {
+        const price = await stripe.prices.retrieve(product.default_price);
+        const productObject = {
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          default_price: price.unit_amount_decimal/100,
+          images: product.images
+        }
+        productsArray.push(productObject)
+      }
+/*         const products = await stripe.products.list();
         //console.log(products.data); // An array of product objects
         const productinfo = products.data
-        res.status(200).json({ productinfo })
-
+        res.status(200).json({ productinfo }) */
+        res.status(200).json({ productsArray })
       } catch (error) {
         console.error(error);
       }
@@ -30,7 +43,7 @@ const addProduct = async (req, res) => {
       }
 }
 
-const getPrice = async (req, res) => {
+/* const getPrice = async (req, res) => {
   try {
     const id = await stripe.prices.retrieve(req.params.id);
     res.status(200).json(id.unit_amount / 100)
@@ -38,5 +51,5 @@ const getPrice = async (req, res) => {
     console.log(err);
   }
 }
-
-module.exports = { getProducts, getProduct, addProduct, getPrice }
+ */
+module.exports = { getProducts, getProduct, addProduct/* , getPrice */ }

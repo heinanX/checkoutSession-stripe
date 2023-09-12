@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSocket } from '../../../context/userContext'
+import { useSocket as useSocketUser } from '../../../context/userContext'
 import BtnClose from '../../_shared_components/BtnClose/BtnClose';
 import './LoginForm.css'
 import EmailInput from '../../_shared_components/Form_inputs/EmailInput';
@@ -7,7 +7,7 @@ import PasswordInput from '../../_shared_components/Form_inputs/PasswordInput';
 
 const LoginForm = () => {
 
-    const { setLoginVisibility, setSignUpVisibility, login } = useSocket()
+    const { setLoginVisibility, setSignUpVisibility, login } = useSocketUser()
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
 

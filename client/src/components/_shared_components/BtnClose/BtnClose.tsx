@@ -1,8 +1,8 @@
-import { useSocket } from '../../../context/userContext'
+import { useSocket as useSocketUser  } from '../../../context/userContext'
 
 const BtnClose = () => {
     
-    const { loginVisibility, setLoginVisibility, setSignUpVisibility, signUpVisibility } = useSocket()
+    const { loginVisibility, setLoginVisibility, setSignUpVisibility, signUpVisibility } = useSocketUser()
 
     const closeWindow = () => {
         if (loginVisibility == true) { setLoginVisibility(false)}

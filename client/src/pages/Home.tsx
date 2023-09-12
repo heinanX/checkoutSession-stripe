@@ -2,13 +2,14 @@ import Header from '../components/Header/Header'
 import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import { useEffect } from 'react'
-import { useSocket } from '../context/userContext'
+import { useSocket as useSocketUser } from '../context/userContext'
 
 const Home = () => {
-  const { checkLoginStatus } = useSocket();
+  const { checkLoginStatus } = useSocketUser();
 
   useEffect(() => {
    checkLoginStatus()
+   //setCart()
   }, []);
 
   return (

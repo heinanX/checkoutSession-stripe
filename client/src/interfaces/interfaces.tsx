@@ -7,11 +7,11 @@ export interface ProductContext {
     addToCart: (productData: Product) => void
 /*     addToCart: (productDefaultPrice: string) => void */
     cart: Cart[],
-    setCart: React.Dispatch<React.SetStateAction<Cart[]>>
+    setCart: React.Dispatch<React.SetStateAction<Cart[]>>,
+    setCartFromLS: () => void
 }
 
 //# INTERFACE FOR USER CONTEXT
-
 
 export interface UserContext {
     loginVisibility: boolean
@@ -25,6 +25,11 @@ export interface UserContext {
     logOut: () => Promise<void>
     checkLoginStatus: () => Promise<void>
 }
+//# INTERFACE FOR ORDER CONTEXT
+
+export interface OrderContext {
+    handlePayment: () => void
+}
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
 
@@ -34,6 +39,12 @@ export interface Product {
     description: string,
     default_price: string
     images: string[]
+}
+
+//# INTERFACE FOR PRODUCTS IN Products.tsx and OrderReview.tsx
+
+export interface ProductProps {
+    productData: Product;
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE

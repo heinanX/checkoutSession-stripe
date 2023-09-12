@@ -7,12 +7,13 @@ const defaultValues = {
   getProducts: () => { },
   addToCart: () => { },
   cart: [],
-  setCart: () => { }
+  setCart: () => { },
+  setCartFromLS: () => {  }
 }
 
 export const ProductContextValues = createContext<ProductContext>(defaultValues)
 // eslint-disable-next-line react-refresh/only-export-components
-export const useSocket_products = () => useContext(ProductContextValues)
+export const useSocket = () => useContext(ProductContextValues)
 
 //---------------------- Provider begins here
 
@@ -23,9 +24,9 @@ function ProductProvider({ children }: PropsWithChildren) {
   // FUNCTION THAT FETCHES PRODUCTS FROM STRIPE
   const getProducts = async () => {
     const res = await fetch('http://localhost:3000/api/products')
-    const response = await res.json();
+    const data = await res.json();
 
-    setProducts(response.productinfo)
+    setProducts(data.productsArray)
   }
 
   // FUNCTION THAT ADDS PRODUCTS TO CART
@@ -53,7 +54,17 @@ function ProductProvider({ children }: PropsWithChildren) {
     }
   };
 
-
+    // FUNCTION THAT ADDS PRODUCTS TO CART FROM LOCALSTORAGE
+  const setCartFromLS = () => {
+    const cartData = localStorage.getItem("cart");
+  
+    if (cartData !== null) {
+      const oldItems = JSON.parse(cartData) as Cart[];
+      setCart(oldItems);
+    } else {
+      localStorage.setItem("cart", JSON.stringify([]));
+    }
+  }
 
   return (
     <ProductContextValues.Provider value={{
@@ -62,7 +73,8 @@ function ProductProvider({ children }: PropsWithChildren) {
       getProducts,
       addToCart,
       cart,
-      setCart
+      setCart,
+      setCartFromLS
     }}>
       {children}
     </ProductContextValues.Provider>
