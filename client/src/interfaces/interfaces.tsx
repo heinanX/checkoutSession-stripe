@@ -13,7 +13,6 @@ export interface ProductContext {
 
 //# INTERFACE FOR USER CONTEXT
 
-
 export interface UserContext {
     loginVisibility: boolean
     setLoginVisibility: React.Dispatch<React.SetStateAction<boolean>>
@@ -25,6 +24,11 @@ export interface UserContext {
     signUp: (uname: string, mail: string, pass: string) => Promise<void>
     logOut: () => Promise<void>
     checkLoginStatus: () => Promise<void>
+}
+//# INTERFACE FOR ORDER CONTEXT
+
+export interface OrderContext {
+    handlePayment: () => void
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE

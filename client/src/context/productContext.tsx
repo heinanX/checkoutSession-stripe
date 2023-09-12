@@ -66,8 +66,6 @@ function ProductProvider({ children }: PropsWithChildren) {
     }
   }
 
-
-
   return (
     <ProductContextValues.Provider value={{
       products,

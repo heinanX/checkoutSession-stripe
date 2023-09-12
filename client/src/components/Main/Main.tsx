@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react'
 import './Main.css'
 import { useSocket_products } from '../../context/productContext'
 import Products from '../Products/Products'
-import { Cart } from '../../interfaces/interfaces'
+//import { Cart } from '../../interfaces/interfaces'
 
 const Main = () => {
 
-  const { products, getProducts, setCart} = useSocket_products()
+  const { products, getProducts, setCartFromLS, cart} = useSocket_products()
   const [loading, setLoading] = useState(true);
   
-  const setCartFromLS = () => {
+  /* const setCartFromLS = () => {
     const cartData = localStorage.getItem("cart");
   
     if (cartData !== null) {
@@ -19,18 +19,18 @@ const Main = () => {
     } else {
       localStorage.setItem("cart", JSON.stringify([]));
     }
-  }
+  } */
   
   // useEffect initiate function on mount
   useEffect(()=> {
     getProducts()
     setCartFromLS();
+    console.log('this is from main ', cart);
+    
   }, [])
 
   useEffect(() => {
     setLoading(false)
-
-console.log('this is from products', products);
 
   }, [products])
 
