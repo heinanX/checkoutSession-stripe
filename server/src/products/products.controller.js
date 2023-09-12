@@ -43,7 +43,7 @@ const addProduct = async (req, res) => {
       }
 }
 
-const getPrice = async (req, res) => {
+/* const getPrice = async (req, res) => {
   try {
     const id = await stripe.prices.retrieve(req.params.id);
     res.status(200).json(id.unit_amount / 100)
@@ -51,5 +51,5 @@ const getPrice = async (req, res) => {
     console.log(err);
   }
 }
-
-module.exports = { getProducts, getProduct, addProduct, getPrice }
+ */
+module.exports = { getProducts, getProduct, addProduct/* , getPrice */ }
