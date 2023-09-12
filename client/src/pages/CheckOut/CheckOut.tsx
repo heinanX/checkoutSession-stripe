@@ -10,7 +10,6 @@ const CheckOut = () => {
 
   useEffect(() => {
     setCartFromLS()
-
   }, [])
 
   const totalPrice = () => {
@@ -34,10 +33,9 @@ const CheckOut = () => {
             {cart.map((element, index) => (
               <OrderReview key={index} cartItem={element} />
             ))}
-
           </ul>
           <hr style={{ width: '80%', borderColor: 'rgba(194, 213, 194, 0.5' }} />
-          <h4>Total: {totalPrice()}</h4>
+          <p className="order-total-sum">Order total:<b> {totalPrice()} kr</b></p>
           <button className="confirm-order-btn">Place Order</button>
         </div>
         <Link to={'/'}>
