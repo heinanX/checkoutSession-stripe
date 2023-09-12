@@ -67,7 +67,7 @@ const Header = () => {
           <div className='btns--div'>
             {!isLoggedIn ? <button className="btn" onClick={showLogin}>Log in</button> : <></>}
             <div className='cartIndicator-div'>
-              <button className='buyBtn btn' onClick={handlePayment}> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
+              <button className='buyBtn btn btn-style' onClick={handlePayment}> <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px', margin: 0 }} /> Buy now</button>
               {cart.length != 0 ? <p className='cartIndicator'>{cartCounter()}</p> : <></>}
             </div>
           </div>

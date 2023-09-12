@@ -14,3 +14,14 @@ body {
 li {
     list-style-type: none;
 }
+
+.btn-style {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(194, 213, 194);
+}
+
+.btn-style:hover {
+    background-color: rgb(134, 146, 134);
+}

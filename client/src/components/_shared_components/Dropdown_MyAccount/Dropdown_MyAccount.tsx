@@ -4,15 +4,29 @@ import './Dropdown_MyAccount.css'
 
 const Dropdown_MyAccount = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const { isLoggedIn } = useSocket();
+    const { isLoggedIn, logOut } = useSocket();
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
-/*     const handleEvent = (key) => {
-        console.log(`Clicked on item with key: ${key}`);
-    }; */
+    const handleEvent = (key:string) => {
+        switch (key) {
+            case 'logOut':
+                logOut()
+                console.log('user logged out');
+                
+            break;
+        
+            case 'previousOrders':
+                console.log('previousOrders')
+            break;
+        
+            case 'myPreferences':
+                console.log('myPreferences')
+            break;
+        }
+    };
 
     return (
         <>
@@ -23,9 +37,9 @@ const Dropdown_MyAccount = () => {
                     <p className='fakeBtn'>My Account ▼</p>
                     {isDropdownOpen && (
                         <ul className="account-menu" onMouseLeave={toggleDropdown}>
-                            <li>Previous Orders</li>
-                            <li>My preferences</li>
-                            <li>Log out</li>
+                            <li onClick={() => { handleEvent('previousOrders') }}>Previous Orders</li>
+                            <li onClick={() => { handleEvent('myPreferences') }}>My preferences</li>
+                            <li onClick={() => { handleEvent('logOut') }}>Log out</li>
                         </ul>
                     )}
                 </li>

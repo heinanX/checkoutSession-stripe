@@ -9,16 +9,3 @@ main {
     gap: 5px;
     padding: 10px 10px;
 }
-
-.productList li {
-    max-width: 30em;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-
-    border: 1px solid rgba(90, 205, 151, 0.384);
-    text-align: center;
-}
