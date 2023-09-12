@@ -2,11 +2,8 @@
 //import { useEffect, useState } from 'react';
 import './Products.css';
 import { useSocket_products } from '../../context/productContext';
-import { Product } from '../../interfaces/interfaces';
+import { ProductProps } from '../../interfaces/interfaces';
 
-interface ProductProps {
-    productData: Product;
-}
 
 const Products = ({ productData }: ProductProps) => {
     const { addToCart } = useSocket_products();

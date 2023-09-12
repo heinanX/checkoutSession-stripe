@@ -7,7 +7,8 @@ const defaultValues = {
   getProducts: () => { },
   addToCart: () => { },
   cart: [],
-  setCart: () => { }
+  setCart: () => { },
+  setCartFromLS: () => {  }
 }
 
 export const ProductContextValues = createContext<ProductContext>(defaultValues)
@@ -53,6 +54,18 @@ function ProductProvider({ children }: PropsWithChildren) {
     }
   };
 
+    // FUNCTION THAT ADDS PRODUCTS TO CART FROM LOCALSTORAGE
+  const setCartFromLS = () => {
+    const cartData = localStorage.getItem("cart");
+  
+    if (cartData !== null) {
+      const oldItems = JSON.parse(cartData) as Cart[];
+      setCart(oldItems);
+    } else {
+      localStorage.setItem("cart", JSON.stringify([]));
+    }
+  }
+
 
 
   return (
@@ -62,7 +75,8 @@ function ProductProvider({ children }: PropsWithChildren) {
       getProducts,
       addToCart,
       cart,
-      setCart
+      setCart,
+      setCartFromLS
     }}>
       {children}
     </ProductContextValues.Provider>
