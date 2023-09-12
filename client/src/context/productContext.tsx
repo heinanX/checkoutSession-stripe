@@ -23,9 +23,9 @@ function ProductProvider({ children }: PropsWithChildren) {
   // FUNCTION THAT FETCHES PRODUCTS FROM STRIPE
   const getProducts = async () => {
     const res = await fetch('http://localhost:3000/api/products')
-    const response = await res.json();
+    const data = await res.json();
 
-    setProducts(response.productinfo)
+    setProducts(data.productsArray)
   }
 
   // FUNCTION THAT ADDS PRODUCTS TO CART

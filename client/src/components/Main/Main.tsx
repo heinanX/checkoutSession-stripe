@@ -21,18 +21,17 @@ const Main = () => {
     }
   }
   
-
-useEffect(() => {
-    setCartFromLS();
-  }, []);
-
   // useEffect initiate function on mount
   useEffect(()=> {
     getProducts()
+    setCartFromLS();
   }, [])
 
   useEffect(() => {
     setLoading(false)
+
+console.log('this is from products', products);
+
   }, [products])
 
   return (

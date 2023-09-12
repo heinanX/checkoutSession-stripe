@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
 import './Products.css';
 import { useSocket_products } from '../../context/productContext';
 import { Product } from '../../interfaces/interfaces';
@@ -10,9 +10,9 @@ interface ProductProps {
 
 const Products = ({ productData }: ProductProps) => {
     const { addToCart } = useSocket_products();
-    const [price, setPrice] = useState<number | null>(null);
+    //const [price, setPrice] = useState<number | null>(null);
 
-
+/* 
     const fetchPrice = async () => {
         try {
             const res = await fetch(`/api/products/price/${productData.default_price}`);
@@ -25,7 +25,7 @@ const Products = ({ productData }: ProductProps) => {
 
     useEffect(() => {
         fetchPrice();
-    }, [productData.default_price]);
+    }, [productData.default_price]); */
 
     return (
         <li>
@@ -35,11 +35,8 @@ const Products = ({ productData }: ProductProps) => {
 
             <button className='add-product-to-cart-btn btn-style' onClick={() => addToCart(productData)}>
             <img src="../../../../src/assets/svg/shopping_cart.svg" style={{ width: '18px' }} />
-                {price !== null ? (
-                    <p className='product-price'>{price} kr</p>
-                ) : (
-                    <p>Loading price...</p>
-                )}
+                    <p className='product-price'>{productData.default_price} kr</p>
+
             </button>
         </li>
     );
