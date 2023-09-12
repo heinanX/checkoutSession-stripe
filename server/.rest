@@ -50,3 +50,14 @@ GET http://localhost:3000/api/orders
 POST http://localhost:3000/api/create-checkout-session
 Content-Type: application/json
 
+[
+    {
+        "price": "price_1NmY9qBcsMmryWv0LC6g9ZHm",
+        "quantity": 3
+        },
+    {
+        "price": "price_1NmYBHBcsMmryWv0wEimPZQt",
+        "quantity": 3
+        }
+]
+
