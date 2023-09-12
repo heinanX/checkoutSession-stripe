@@ -19,8 +19,8 @@ const OrderReview = ({ cartItem }: { cartItem: Cart }) => {
             {cartItem.product.map((item) => (
                 <span key={item.id}>
                     <span className="product-info">
-                        <img src={item.images[0]} style={{ width: "50px" }} />
-                        <h3>{item.name}</h3>
+                        <img src={item.images} style={{ width: "50px" }} />
+                        <h3>{item.title}</h3>
                     </span>
 
                     <span className="quantity-container">

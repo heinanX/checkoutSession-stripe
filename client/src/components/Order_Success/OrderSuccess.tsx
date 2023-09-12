@@ -16,10 +16,6 @@ const OrderSuccess = () => {
         <div className='orderSuccess'>
             <h1>Thank you for placing an order!</h1>
             <img src="../../src/assets/order_success_moose.jpg" style={{ width: '500px' }} />
-            { fetchedData ? <>
-                
-            </> :
-            <></> }
         </div>
     )
 }
