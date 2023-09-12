@@ -1,4 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
+const { log } = require('console');
 const fs = require('fs')
 
 const getUsers = async (req, res) => {
@@ -15,19 +16,21 @@ const getUsers = async (req, res) => {
 const loginUser = (req, res) => {
   const { email} = req.body
 
-  if (req.session.email) {
+  if (req.session.user) {
     return res.status(200).json(email);
   }
 
-  req.session.email = email
+  req.session.user = email
+  console.log(req.session.user);
   res.status(200).json({ email })
 }
 
 const logOutUser = (req, res) => {
-  if (!req.session.email) {
+  if (!req.session.user) {
     return res.status(400).json("Cannot logout when you are not logged in");
   }
-  req.session.email = null;
+  req.session.user = null;
+  console.log(req.session.user);
   res.status(200).json({ message: 'Logged out'});
 }
 
@@ -60,4 +63,12 @@ const createUser = async (req, res) => {
   }
 }
 
-module.exports = { getUsers, createUser, loginUser, logOutUser }
+const checkLoginStatus = (req, res) => {
+  if (req.session.user) {
+    res.status(200).json(req.session.user)
+  } else {
+    res.status(404).json({message: 'User needs to login'})
+  }
+}
+
+module.exports = { getUsers, createUser, loginUser, logOutUser, checkLoginStatus }

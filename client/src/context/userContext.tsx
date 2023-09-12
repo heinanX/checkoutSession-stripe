@@ -13,7 +13,8 @@ const defaultValues = {
   setIsLoggedIn: () => { },
   login: async (mail: string, pass: string) => { },
   signUp: async (uname: string, mail: string, pass: string) => { },
-  logOut: async () => {  }
+  logOut: async () => { },
+  checkLoginStatus: async () => { }
 }
 
 export const UserContextValues = createContext<UserContext>(defaultValues)
@@ -73,16 +74,16 @@ function UserProvider({ children }: PropsWithChildren) {
       if (res.ok) {
         // Handle successful login here, e.g., set isLoggedIn to true
         console.log('customer ', mail, ' has been created');
-        
+
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
         login(mail, pass)
-        
-/*         if (Cookies.get('session')) {
-          // The cookie exists, you can proceed to use its value
-        } else {
-          // The cookie doesn't exist
-        } */
+
+        /*         if (Cookies.get('session')) {
+                  // The cookie exists, you can proceed to use its value
+                } else {
+                  // The cookie doesn't exist
+                } */
 
       } else {
         // Handle login error, e.g., show an error message
@@ -94,19 +95,36 @@ function UserProvider({ children }: PropsWithChildren) {
   }
 
   const logOut = async () => {
-    const res = await fetch('api/users/logout', {
-      method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({})
-    })
+    try {
+      const res = await fetch('api/users/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      })
 
+      const data = await res.json()
+      console.log(data);
+      localStorage.removeItem('user')
+      setIsLoggedIn(false)
+    } catch (error) {
+      console.log(error);
+
+    }
+
+
+  }
+
+  const checkLoginStatus = async () => {
+    const res = await fetch('api/users/authorize')
     const data = await res.json()
-    console.log(data);
-    
-    setIsLoggedIn(false)
-
+    if (res.ok) {
+      setIsLoggedIn(true)
+      localStorage.setItem('user', data)
+    } else {
+      return
+    }
   }
 
 
@@ -120,7 +138,8 @@ function UserProvider({ children }: PropsWithChildren) {
       setIsLoggedIn,
       login,
       signUp,
-      logOut
+      logOut,
+      checkLoginStatus
     }}>
       {children}
     </UserContextValues.Provider>
