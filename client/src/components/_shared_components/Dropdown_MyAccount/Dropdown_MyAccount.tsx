@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useSocket } from '../../../context/userContext'
+import { useSocket as useSocketUser } from '../../../context/userContext'
 import './Dropdown_MyAccount.css'
 
 const Dropdown_MyAccount = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const { isLoggedIn, logOut } = useSocket();
+    const { isLoggedIn, logOut } = useSocketUser();
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);

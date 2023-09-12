@@ -1,4 +1,4 @@
-import { useSocket } from '../../context/userContext'
+import { useSocket as useSocketUser  } from '../../context/userContext'
 import { useSocket as useSocketProducts } from '../../context/productContext'
 import PopUp from '../PopUp/PopUp'
 import './Header.css'
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
 
-  const { loginVisibility, signUpVisibility, setLoginVisibility, isLoggedIn } = useSocket()
+  const { loginVisibility, signUpVisibility, setLoginVisibility, isLoggedIn } = useSocketUser()
   const { cart } = useSocketProducts()
   const showLogin = () => {
     setLoginVisibility(true)
