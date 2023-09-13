@@ -1,9 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropsWithChildren, createContext, useContext, useState } from "react";
-import { OrderContext } from "../interfaces/interfaces";
+import { OrderContext, SendData } from "../interfaces/interfaces";
 const defaultValues = {
-  createCheckout: async (order: { price: string; quantity: number }[]) => { }
+  createCheckout: async (data: SendData) => { }
 }
 
 export const OrderContextValues = createContext<OrderContext>(defaultValues)
@@ -11,10 +11,10 @@ export const useSocket = () => useContext(OrderContextValues)
 
 function OrderProvider({ children }: PropsWithChildren) {
 
-  async function createCheckout(order: { price: string; quantity: number }[]) {
+  async function createCheckout(data: SendData) {
 
 
-    console.log(order);
+    console.log(data);
     
     const response = await fetch("/api/create-checkout-session",
       {
@@ -22,7 +22,7 @@ function OrderProvider({ children }: PropsWithChildren) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(order),
+        body: JSON.stringify(data),
       }
     );
 

@@ -28,7 +28,7 @@ export interface UserContext {
 //# INTERFACE FOR ORDER CONTEXT
 
 export interface OrderContext {
-    createCheckout: (order: { price: string; quantity: number }[]) => Promise<void>;
+    createCheckout: (data: SendData) => Promise<void>;
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
@@ -60,4 +60,10 @@ export interface User {
     email: string,
     password: string,
     description: string,
+}
+
+// # INTERFACE FOR SENDING ORDER AND CUSTOMER DATA TO BACKEND
+export interface SendData {
+    order: { price: string; quantity: number }[];
+    userId: string;
 }

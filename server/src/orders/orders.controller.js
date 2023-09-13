@@ -14,8 +14,8 @@ const createOrder = async (req, res) => {
         payment_method_types:['card'],
         mode: 'payment',
         currency: 'sek',
-        customer: 'cus_OapDRRmPVvFcff',
-        line_items: req.body
+        customer: req.body.userId,
+        line_items: req.body.order
         })
         res.status(200).json({
             url: session.url,
