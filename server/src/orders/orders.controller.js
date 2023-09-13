@@ -8,9 +8,8 @@ const getOrders = (req, res) => {
 const createOrder = async (req, res) => {
     
     const session = await stripe.checkout.sessions.create({
-        success_url: 'http://localhost:5173/success',
+        success_url: 'http://localhost:5173/success?id={CHECKOUT_SESSION_ID}',
         cancel_url: 'http://localhost:5173/failed',    
-        //cancel_url: 'https://localhost:5173/success?id={CHECKOUT_SESSION_ID}',    
         payment_method_types:['card'],
         mode: 'payment',
         currency: 'sek',
