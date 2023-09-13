@@ -114,8 +114,6 @@ function UserProvider({ children }: PropsWithChildren) {
 
   const checkLoginStatus = async () => {
     try {
-      
-
     const res = await fetch('api/users/authorize')
     const data = await res.json()
     if (res.ok) {

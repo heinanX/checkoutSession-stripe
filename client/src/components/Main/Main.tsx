@@ -7,7 +7,7 @@ import Products from '../Products/Products'
 
 const Main = () => {
 
-  const { products, getProducts, setCartFromLS, cart} = useSocketProducts()
+  const { products, getProducts} = useSocketProducts()
   const [loading, setLoading] = useState(true);
   
   /* const setCartFromLS = () => {
@@ -24,8 +24,8 @@ const Main = () => {
   // useEffect initiate function on mount
   useEffect(()=> {
     getProducts()
-    setCartFromLS();
-    console.log('this is from main ', cart);
+    //setCartFromLS();
+    //console.log('this is from main ', cart);
     
   }, [])
 
