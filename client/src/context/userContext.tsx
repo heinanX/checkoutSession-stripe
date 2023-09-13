@@ -42,11 +42,14 @@ function UserProvider({ children }: PropsWithChildren) {
         })
       if (res.ok) {
         // Handle successful login here, e.g., set isLoggedIn to true
-        console.log(mail, ' has logged in');
         setIsLoggedIn(true);
-        localStorage.setItem('user',(mail))
+
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
+
+        const data = await res.json()
+        localStorage.setItem('user',(JSON.stringify(data.userObject)))
+        console.log(data, ' has logged in');
 
       } else {
         // Handle login error, e.g., show an error message
@@ -79,12 +82,6 @@ function UserProvider({ children }: PropsWithChildren) {
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
         login(mail, pass)
-
-        /*         if (Cookies.get('session')) {
-                  // The cookie exists, you can proceed to use its value
-                } else {
-                  // The cookie doesn't exist
-                } */
 
       } else {
         // Handle login error, e.g., show an error message

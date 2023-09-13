@@ -13,16 +13,26 @@ const getUsers = async (req, res) => {
     }
 }
 
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   const { email} = req.body
 
   if (req.session.user) {
     return res.status(200).json(email);
   }
 
-  req.session.user = email
-  console.log(req.session.user);
-  res.status(200).json({ email })
+  const users = await stripe.customers.list();
+  const userData = users.data
+  const confirmedUser = userData.find((user) => user.email == email)
+
+  const userObject = {
+    id: confirmedUser.id,
+    email: email,
+    uname: confirmedUser.description
+  }
+
+  req.session.user = userObject
+
+  res.status(200).json({ userObject })
 }
 
 const logOutUser = (req, res) => {

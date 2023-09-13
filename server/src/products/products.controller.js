@@ -8,10 +8,11 @@ const getProducts = async (req, res) => {
         const price = await stripe.prices.retrieve(product.default_price);
         const productObject = {
           id: product.id,
-          name: product.name,
+          title: product.name,
           description: product.description,
-          default_price: price.unit_amount_decimal/100,
-          images: product.images
+          price:price.unit_amount_decimal/100,
+          default_price: product.default_price,
+          images: product.images[0]
         }
         productsArray.push(productObject)
       }

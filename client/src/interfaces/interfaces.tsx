@@ -28,17 +28,18 @@ export interface UserContext {
 //# INTERFACE FOR ORDER CONTEXT
 
 export interface OrderContext {
-    handlePayment: () => void
+    createCheckout: (order: { price: string; quantity: number }[]) => Promise<void>;
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
 
 export interface Product {
     id: string,
-    name: string,
+    title: string,
     description: string,
-    default_price: string
-    images: string[]
+    price: number,
+    default_price: string,
+    images: string
 }
 
 //# INTERFACE FOR PRODUCTS IN Products.tsx and OrderReview.tsx

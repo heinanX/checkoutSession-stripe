@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { Cart, Product, ProductContext } from "../interfaces/interfaces";
 
@@ -12,7 +13,7 @@ const defaultValues = {
 }
 
 export const ProductContextValues = createContext<ProductContext>(defaultValues)
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const useSocket = () => useContext(ProductContextValues)
 
 //---------------------- Provider begins here
@@ -25,7 +26,7 @@ function ProductProvider({ children }: PropsWithChildren) {
   const getProducts = async () => {
     const res = await fetch('http://localhost:3000/api/products')
     const data = await res.json();
-
+    
     setProducts(data.productsArray)
   }
 
@@ -39,7 +40,6 @@ function ProductProvider({ children }: PropsWithChildren) {
       duplicateProduct.quantity += 1;
       setCart([...cart]);
       localStorage.setItem('cart', JSON.stringify(cart));
-      //console.log('increment item', cart);
     } else {
       const updatedCart = [
         ...cart,
@@ -50,7 +50,6 @@ function ProductProvider({ children }: PropsWithChildren) {
       ];
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
-      //console.log('item added ', updatedCart);
     }
   };
 
