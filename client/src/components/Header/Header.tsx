@@ -37,7 +37,7 @@ const Header = () => {
               </ScrollLink></li>
             <li className='fakeBtn'>About us</li>
             <li className='fakeBtn'>Contact us</li>
-            {/* {isLoggedIn ? <li className='accountBtn fakeBtn'><p>My Account</p><img src="../../../../src/assets/svg/user.svg" style={{ width: '20px', margin: 0 }} /></li> : <></>} */}
+           
             <Dropdown_MyAccount />
           </ul>
           <div className='btns--div'>
