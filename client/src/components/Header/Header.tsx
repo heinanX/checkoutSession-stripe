@@ -3,7 +3,7 @@ import { useSocket as useSocketProducts } from "../../context/productContext";
 import PopUp from "../PopUp/PopUp";
 import "./Header.css";
 import Announcement from "../Announcement/Announcement";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Dropdown_MyAccount from "../_shared_components/Dropdown_MyAccount/Dropdown_MyAccount";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import BrowseSectionLink from "../_shared_components/BrowseSectionLink/BrowseSectionLink";
@@ -13,6 +13,9 @@ const Header = () => {
   const { loginVisibility, signUpVisibility, setLoginVisibility, isLoggedIn, setIsLoggedIn } =
     useSocketUser();
   const { cart, setCartFromLS } = useSocketProducts();
+  const location = useLocation();
+
+  const pathname = location.pathname
 
   useEffect(()=> {
     setCartFromLS();
@@ -73,7 +76,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <Announcement />
+        { pathname === '/' ? <Announcement /> : <hr style={{ borderColor: 'rgba(194, 213, 194, 0.2)'}}/>}
+        
         {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
       </div>
     </header>

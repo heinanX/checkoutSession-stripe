@@ -3,38 +3,48 @@ import './OrderConfirmation.css'
 
 const OrderConfirmation = () => {
     const { orderConfData } = useSocketOrder()
-    console.log('this is from here ', orderConfData);
 
     return (
         <>
-            <h4 style={{ textAlign: 'center', padding: '2em 0' }}>A mail has been sent to {orderConfData.customer}</h4>
-            <p></p>
+            <h4 className='noteToCustomer'>A mail has been sent to {orderConfData.customer}</h4>
             <div className="colored--div">
                 <p>Order Confirmation:</p>
             </div>
+
             <ul>
-                <li className='order-span-setting sm-p'>
-                    <p className='bold-p'>ID:</p>
+                <li className='order-li-setting sm-p'>
+                    <p className='bold-p'>Order ID:</p>
                     <p className='ocd-id'>{orderConfData.id}</p>
+                </li>
+
+                <li className='sm-p order-li-setting'>
+                    <p className='bold-p'>Order Total:</p>
+                    <p>{orderConfData.orderTotal} kr</p>
                 </li>
 
                 <li>
                     <ul>
-                        <p className='bold-p sm-p' style={{ margin: '10px, 0', paddingLeft: '10px' }}>Products:</p>
+                        <li className='ocd-productList-headings'>
+                            <p className='ocd-quan sm-p bold-p'>Quantity:</p>        
+                            <p className='ocd-desc sm-p bold-p'>Product:</p>
+                            <p className='ocd-price-hdr sm-p bold-p'>Price:</p>
+                        </li>
                         {orderConfData.products.map((product) => (
                             <li key={product.id} className='orderConfData-products'>
-                                <p className='ocd-desc'>{product.description}</p>
-                                <p className='ocd-price'>{product.amount_total / 100} kr</p>
                                 <p className='ocd-quan'>{product.quantity}st</p>
+                                <p className='ocd-desc'>{product.description}</p>
+                                <span className='ocd-price'>
+                                    <p>{product.amount_total / 100} kr</p>
+
+                                    {product.quantity > 1 ? <p className='sm-p'>{product.amount_total / 100 / product.quantity} kr/st</p> : <></>}
+                                </span>
                             </li>
                         ))}
                     </ul>
                 </li>
 
-                <li className='sm-p order-span-setting'>
-                    <p className='bold-p'>Order Total:</p>
-                    <p>{orderConfData.orderTotal}</p>
-                </li>
+
+
 
             </ul>
         </>
@@ -43,18 +53,3 @@ const OrderConfirmation = () => {
 }
 
 export default OrderConfirmation
-/* 
-{orderConfData ? (
-
-    {orderConfData.map((product) => (
-            <li>
-                
-    ))
-
-
-
-    <h1></h1>
-
-</li>        ) : (
-<p>No order data available.</p>
-)} */

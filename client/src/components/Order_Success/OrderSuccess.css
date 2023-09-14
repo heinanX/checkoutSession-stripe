@@ -3,18 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 150px 0 4em 0;
-}
-
-.colored--div {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    background-color: rgba(194, 213, 194, 0.842);
-    height: 2em;
-    color: rgb(41, 46, 41);
-    font-weight: 600;
-    border-radius: 2px;
+    padding: 100px 0 4em 0;
 }
 
 .orderDataContainer {
@@ -22,4 +11,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.sm-p {
+    font-size: smaller;
 }
