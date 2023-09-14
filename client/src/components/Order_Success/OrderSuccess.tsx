@@ -3,9 +3,11 @@ import "./OrderSuccess.css";
 import { useEffect } from "react";
 import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
 import { useSocket as useSocketOrder } from "../../context/orderContext";
+import { useSocket as useSocketProduct } from "../../context/productContext";
 
 const OrderSuccess = () => {
   const { fetchOrder, orderConfData } = useSocketOrder();
+  const { resetCart } = useSocketProduct();
   const location = useLocation();
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const OrderSuccess = () => {
     console.log(ssessionId);
 
     if (ssessionId) {
+      resetCart()
       fetchOrder(ssessionId);
     }
   }, []);

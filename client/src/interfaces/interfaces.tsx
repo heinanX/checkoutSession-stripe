@@ -7,8 +7,9 @@ export interface ProductContext {
     addToCart: (productData: Product) => void
     /*     addToCart: (productDefaultPrice: string) => void */
     cart: Cart[],
-    setCart: React.Dispatch<React.SetStateAction<Cart[]>>,
+    setCart: React.Dispatch<React.SetStateAction<Cart[]>>;
     setCartFromLS: () => void
+    resetCart: () => void
 }
 
 //# INTERFACE FOR USER CONTEXT

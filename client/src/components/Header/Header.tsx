@@ -44,7 +44,7 @@ const Header = () => {
           <Link to="/">
             <img
               src="../../../../src/assets/coolspecs-logo.png"
-              style={{ width: "200px" }}
+              style={{ width: "200px", paddingTop: '4px' }}
             />
           </Link>
           <ul>

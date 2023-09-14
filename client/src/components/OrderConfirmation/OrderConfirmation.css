@@ -48,13 +48,15 @@
 }
 
 .ocd-price,
-.ocd-price-hdr  {
+.ocd-price-hdr {
     width: 30%;
     text-align: end;
 }
+
 .ocd-price {
     min-height: 40px;
 }
+
 .ocd-desc {
     width: 50%;
 }

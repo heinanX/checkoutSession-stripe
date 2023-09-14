@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { OrderContext, SendData, orderConfData } from "../interfaces/interfaces";
+
+
 const defaultValues = {
   createCheckout: async (data: SendData) => { },
   fetchOrder: async (sessionId: string) => {  },
@@ -52,7 +54,6 @@ function OrderProvider({ children }: PropsWithChildren) {
   }
 
   const fetchOrder = async (sessionId: string) => {
-    
     const res = await fetch(`/api/orders/${sessionId}`)
     const data = await res.json()
     setOrderConfData(data)

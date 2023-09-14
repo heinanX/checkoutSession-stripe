@@ -9,7 +9,8 @@ const defaultValues = {
   addToCart: () => { },
   cart: [],
   setCart: () => { },
-  setCartFromLS: () => {  }
+  setCartFromLS: () => {  },
+  resetCart: () => {  }
 }
 
 export const ProductContextValues = createContext<ProductContext>(defaultValues)
@@ -65,6 +66,11 @@ function ProductProvider({ children }: PropsWithChildren) {
     }
   }
 
+  const resetCart = () => {
+    setCart([])
+    localStorage.setItem("cart", JSON.stringify([]))
+  }
+
   return (
     <ProductContextValues.Provider value={{
       products,
@@ -73,7 +79,8 @@ function ProductProvider({ children }: PropsWithChildren) {
       addToCart,
       cart,
       setCart,
-      setCartFromLS
+      setCartFromLS,
+      resetCart
     }}>
       {children}
     </ProductContextValues.Provider>
