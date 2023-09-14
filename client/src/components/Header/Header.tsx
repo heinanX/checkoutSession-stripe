@@ -5,36 +5,31 @@ import "./Header.css";
 import Announcement from "../Announcement/Announcement";
 import { Link, useLocation } from "react-router-dom";
 import Dropdown_MyAccount from "../_shared_components/Dropdown_MyAccount/Dropdown_MyAccount";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import BrowseSectionLink from "../_shared_components/BrowseSectionLink/BrowseSectionLink";
 import { useEffect } from "react";
+import BuyBtn from "../_smaller_components/BuyBtn";
 
 const Header = () => {
-  const { loginVisibility, signUpVisibility, setLoginVisibility, isLoggedIn, setIsLoggedIn } =
-    useSocketUser();
-  const { cart, setCartFromLS } = useSocketProducts();
-  const location = useLocation();
+  const {
+    loginVisibility,
+    signUpVisibility,
+    setLoginVisibility,
+    isLoggedIn,
+    setIsLoggedIn,
+  } = useSocketUser();
+  const { setCartFromLS } = useSocketProducts();
 
-  const pathname = location.pathname
+  const {pathname} = useLocation();
 
-  useEffect(()=> {
+  useEffect(() => {
     setCartFromLS();
-    if (localStorage.getItem('user')) {
-      setIsLoggedIn(true)
+    if (localStorage.getItem("user")) {
+      setIsLoggedIn(true);
     }
-    
-  }, [])
+  }, []);
 
   const showLogin = () => {
     setLoginVisibility(true);
-  };
-
-  const cartCounter = () => {
-    let num = 0;
-    cart.forEach((item) => {
-      num += item.quantity;
-    });
-    return num;
   };
 
   return (
@@ -44,7 +39,7 @@ const Header = () => {
           <Link to="/">
             <img
               src="../../../../src/assets/coolspecs-logo.png"
-              style={{ width: "200px", paddingTop: '4px' }}
+              style={{ width: "200px", paddingTop: "4px" }}
             />
           </Link>
           <ul>
@@ -63,21 +58,17 @@ const Header = () => {
             )}
             <div className="cartIndicator-div">
               <Link to={"/checkout"}>
-                <button className="buyBtn btn btn-style">
-                  {" "}
-                  <ShoppingCartIcon style={{ fontSize: "20px" }} /> Buy now
-                </button>
-                {cart.length != 0 ? (
-                  <p className="cartIndicator">{cartCounter()}</p>
-                ) : (
-                  <></>
-                )}
+                <BuyBtn />
               </Link>
             </div>
           </div>
         </div>
-        { pathname === '/' ? <Announcement /> : <hr style={{ borderColor: 'rgba(194, 213, 194, 0.2)'}}/>}
-        
+        {pathname === "/" ? (
+          <Announcement />
+        ) : (
+          <hr style={{ borderColor: "rgba(194, 213, 194, 0.2)" }} />
+        )}
+
         {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
       </div>
     </header>

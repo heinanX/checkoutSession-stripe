@@ -17,13 +17,13 @@ För att bli godkänd på den här uppgiften MÅSTE ni använda GIT och GitHub. 
 - 6. Man skall kunna registrera sig som en användare i
     webbshoppen. Detta skall 
     resultera i att en ”Customer” skapas i Stripe och användaren sparar i en JSON-fil. (samtliga lösenord skall sparas hashade).
-7. Man skall kunna logga in som kund. Den inloggade kunden
+- 7. Man skall kunna logga in som kund. Den inloggade kunden
     (som även är sparad i Stripe) skall användas vid placering av order.
-8. Man skall inte kunna placera en order om man inte är inloggad.
+- 8. Man skall inte kunna placera en order om man inte är inloggad.
 
 `Krav för väl godkänt:`
-1. Alla punkter för godkänt är uppfyllda
+- 1. Alla punkter för godkänt är uppfyllda
 2. Det skall gå att ange en rabattkod för att få rabatt på sitt köp (Detta görs genom Stripe)
 3. Man skall som inloggad kunna se sina lagda ordrar.
-4. Samtliga placerade ordrar skall sparas till en lista i en JSON-fil.
-5. Ordern får inte under några omständigheter läggas utan genomförd betalning! (dvs. Spara aldrig ett orderobjekt såvida ni inte fått bekräftelse tillbaka ifrån stripe att betalningen gått igenom)
+- 4. Samtliga placerade ordrar skall sparas till en lista i en JSON-fil.
+- 5. Ordern får inte under några omständigheter läggas utan genomförd betalning! (dvs. Spara aldrig ett orderobjekt såvida ni inte fått bekräftelse tillbaka ifrån stripe att betalningen gått igenom)

@@ -1,31 +1,30 @@
-import { useState } from "react"
-import { useSocket as useSocketUser  } from "../../../context/userContext"
-import BtnClose from "../../_shared_components/BtnClose/BtnClose"
-import EmailInput from "../../_shared_components/Form_inputs/EmailInput"
-import PasswordInput from "../../_shared_components/Form_inputs/PasswordInput"
-import './SignUpForm.css'
+import { useState } from "react";
+import { useSocket as useSocketUser } from "../../../context/userContext";
+import BtnClose from "../../_shared_components/BtnClose/BtnClose";
+import EmailInput from "../../_shared_components/Form_inputs/EmailInput";
+import PasswordInput from "../../_shared_components/Form_inputs/PasswordInput";
+import "./SignUpForm.css";
+import { useLocation, Link } from "react-router-dom";
 
 const SignUpForm = () => {
+  const { setLoginVisibility, setSignUpVisibility, signUp } = useSocketUser();
 
-  const { setLoginVisibility, setSignUpVisibility, signUp } = useSocketUser()
-
-  const [uname, setUname] = useState('')
-  const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
+  const [uname, setUname] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const { pathname } = useLocation();
 
   const switchForm = () => {
-    setLoginVisibility(true)
-    setSignUpVisibility(false)
-  }
+    setLoginVisibility(true);
+    setSignUpVisibility(false);
+  };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log(uname, email, pass);
 
-    signUp(uname, email, pass)
-
-
-  }
+    signUp(uname, email, pass);
+  };
 
   return (
     <form className="SignUpForm" onSubmit={handleSubmit}>
@@ -34,13 +33,21 @@ const SignUpForm = () => {
         <h1>Create an account</h1>
       </span>
 
-      <BtnClose />
+      {pathname === "/checkout" ? (
+        <Link to="/">
+          <BtnClose />
+        </Link>
+      ) : (
+        <BtnClose />
+      )}
 
       <input
         type="text"
         placeholder="Enter Name"
         name="uname"
-        onChange={(e) => { setUname(e.target.value) }}
+        onChange={(e) => {
+          setUname(e.target.value);
+        }}
         required
       />
 
@@ -48,11 +55,15 @@ const SignUpForm = () => {
 
       <PasswordInput setPass={setPass} />
 
-      <p>Already a customer? <a onClick={switchForm}>Login here</a></p>
+      <p>
+        Already a customer? <a onClick={switchForm}>Login here</a>
+      </p>
 
-      <button className='signUp--btn' type="submit">create</button>
+      <button className="signUp--btn" type="submit">
+        create
+      </button>
     </form>
-  )
-}
+  );
+};
 
-export default SignUpForm
+export default SignUpForm;

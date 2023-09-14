@@ -57,7 +57,7 @@ const CheckOut = () => {
         src="../../../../src/assets/checkout-banner.png"
       />
       <div className="order-content">
-        <h2>Order review</h2>
+        <h2 className="h2-title-styling">Order review</h2>
         <div className="cart-review">
           <ul>
             {cart.map((element, index) => (

@@ -5,13 +5,13 @@
     align-items: center;
     gap: 10px;
 
-    background-color: rgb(74, 148, 134);
+    background-color: rgb(194, 213, 194);
     padding: 5em 5em;
-    border-radius: 15em;
+    border-radius: 4px;
 }
 
 .SignUpForm > span {
-    color: rgb(236, 254, 249);
+    color: rgb(62, 68, 62);
     text-align: center;
     padding-bottom: 2em;
 }
@@ -27,7 +27,7 @@
 .SignUpForm > p {
     font-size: small;
     text-align: center;
-    color: rgb(236, 254, 249);
+    color: rgb(62, 68, 62);
 }
 
 .signUp--btn {
@@ -40,8 +40,6 @@
     background-color: rgb(242, 232, 138);
 }
 
-.close-window {
-    position: absolute;
-    top: 0;
-    right: 0;
+.signUp--btn:hover {
+    background-color: rgb(192, 185, 125)
 }

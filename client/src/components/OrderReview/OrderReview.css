@@ -1,4 +1,6 @@
-.checkout-item span {
+/* If somethign weird happened I changed the > between ch and span */
+
+.checkout-item > span {
     padding: 1em 4em;
     display: flex;
     justify-content: space-between;
