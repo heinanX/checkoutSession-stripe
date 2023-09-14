@@ -3,5 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1em 0;
+    padding: 150px 0 4em 0;
+}
+
+.colored--div {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: rgba(194, 213, 194, 0.842);
+    height: 2em;
+    color: rgb(41, 46, 41);
+    font-weight: 600;
+    border-radius: 2px;
+}
+
+.orderDataContainer {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

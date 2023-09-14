@@ -5,7 +5,7 @@ export interface ProductContext {
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>
     getProducts: () => void
     addToCart: (productData: Product) => void
-/*     addToCart: (productDefaultPrice: string) => void */
+    /*     addToCart: (productDefaultPrice: string) => void */
     cart: Cart[],
     setCart: React.Dispatch<React.SetStateAction<Cart[]>>,
     setCartFromLS: () => void
@@ -29,6 +29,9 @@ export interface UserContext {
 
 export interface OrderContext {
     createCheckout: (data: SendData) => Promise<void>;
+    fetchOrder: (sessionId: string) => Promise<void>;
+    orderConfData: orderConfData;
+    setOrderConfData: React.Dispatch<React.SetStateAction<orderConfData>>;
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
@@ -66,4 +69,26 @@ export interface User {
 export interface SendData {
     order: { price: string; quantity: number }[];
     userId: string;
+}
+// # SEPARATE INTERFACE FOR PRODUCT IN SENDING ORDER AND CUSTOMER DATA TO BACKEND
+export interface ProductData {
+    id: string;
+    amount_discount: number;
+    amount_total: number;
+    description: string;
+    price: {
+        id: string;
+        unit_amount: number;
+    };
+    quantity: number;
+}
+
+// # INTERFACE FOR SENDING ORDER AND CUSTOMER DATA TO BACKEND
+export interface orderConfData {
+    id: string;
+    products: ProductData[]; 
+    orderTotal: number;
+    customerId: string;
+    customer: string;
+    status: string;
 }

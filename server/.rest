@@ -45,6 +45,9 @@ POST http://localhost:3000/api/products
 ### GET ORDERS
 GET http://localhost:3000/api/orders
 
+### GET ORDER BY ID
+GET http://localhost:3000/api/orders/cs_test_b1uueEWDy9OVSNbtvp79QSvhyAbl9970Cn11n4wxXcGCFizzbjG5M0AFYG
+
 
 ### POST AN ORDER
 POST http://localhost:3000/api/create-checkout-session

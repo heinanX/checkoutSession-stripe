@@ -11,7 +11,7 @@ const CheckOut = () => {
   const { createCheckout } = useSocketOrder();
 
   useEffect(() => {
-    setCartFromLS();
+    setCartFromLS();    
   }, []);
 
   const totalPrice = () => {
