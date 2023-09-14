@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
    checkLoginStatus()
-   //setCart()
+   //setCart()   
   }, []);
 
   return (

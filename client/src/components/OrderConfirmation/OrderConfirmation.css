@@ -1,0 +1,43 @@
+.orderConfData-products {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 10px 2px 70px;
+    /* border-bottom: 1px solid rgba(194, 213, 194, 0.842); */
+}
+
+.orderConfData-products:nth-child(odd) {
+    background-color: rgba(194, 213, 194, 0.242);
+}
+
+.order-span-setting {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(194, 213, 194, 0.842);
+}
+
+.bold-p {
+    font-weight: 600;
+}
+
+.sm-p {
+    font-size: smaller;
+}
+
+.ocd-id {
+    width: 350px;
+    overflow-wrap: break-word;
+    text-align: end;
+}
+
+.ocd-price {
+    width: 20%;
+}
+.ocd-desc {
+    width: 60%;
+}
+.ocd-quan {
+    width: 20%;
+    text-align: end;
+}
+

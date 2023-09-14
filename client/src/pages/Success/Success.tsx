@@ -1,7 +1,19 @@
+import { useEffect } from "react"
 import Header from "../../components/Header/Header"
 import OrderSuccess from "../../components/Order_Success/OrderSuccess"
+import { useSocket as useSocketUser } from '../../context/userContext';
 
-const success = () => {
+
+const Success = () => {
+
+  const {isLoggedIn} = useSocketUser()
+
+    useEffect(()=> {
+    console.log(isLoggedIn);
+    
+  },[])
+
+
   return (
     <>
     <Header />
@@ -10,4 +22,4 @@ const success = () => {
   )
 }
 
-export default success
+export default Success

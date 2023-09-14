@@ -7,25 +7,12 @@ import Products from '../Products/Products'
 
 const Main = () => {
 
-  const { products, getProducts, setCartFromLS, cart} = useSocketProducts()
+  const { products, getProducts} = useSocketProducts()
   const [loading, setLoading] = useState(true);
-  
-  /* const setCartFromLS = () => {
-    const cartData = localStorage.getItem("cart");
-  
-    if (cartData !== null) {
-      const oldItems = JSON.parse(cartData) as Cart[];
-      setCart(oldItems);
-    } else {
-      localStorage.setItem("cart", JSON.stringify([]));
-    }
-  } */
-  
-  // useEffect initiate function on mount
+
+
   useEffect(()=> {
     getProducts()
-    setCartFromLS();
-    console.log('this is from main ', cart);
     
   }, [])
 

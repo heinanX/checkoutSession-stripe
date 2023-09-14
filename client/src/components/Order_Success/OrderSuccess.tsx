@@ -1,23 +1,35 @@
-//import { useState } from 'react'
-import './OrderSuccess.css'
+import { useLocation } from "react-router-dom";
+import "./OrderSuccess.css";
+import { useEffect } from "react";
+import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
+import { useSocket as useSocketOrder } from "../../context/orderContext";
 
 const OrderSuccess = () => {
-    /* const [fetchedData, setFetchedData] = useState() */
+  const { fetchOrder, orderConfData } = useSocketOrder();
+  const location = useLocation();
 
-/*     const fetchOrderId = async () => {
-        
+  useEffect(() => {
+    const queryString = location.search;
+    const ssessionId = queryString.substring(4);
 
-        const res = await fetch('/api/create-checkout-session')
-        const data = await res.json()
-        setFetchedData(data)
-    } */
+    console.log(ssessionId);
 
-    return (
-        <div className='orderSuccess'>
-            <h1>Thank you for placing an order!</h1>
-            <img src="../../src/assets/order_success_moose.jpg" style={{ width: '500px' }} />
-        </div>
-    )
-}
+    if (ssessionId) {
+      fetchOrder(ssessionId);
+    }
+  }, []);
 
-export default OrderSuccess
+  console.log(orderConfData);
+
+  return (
+    <div className="orderSuccess">
+      <img src="../../src/assets/delivery.png" style={{ width: "100px" }} />
+      <h1 style={{ fontWeight: "800" }}>Thank You For Your Order!</h1>
+      <div className="orderDataContainer">
+        <OrderConfirmation />
+      </div>
+    </div>
+  );
+};
+
+export default OrderSuccess;
