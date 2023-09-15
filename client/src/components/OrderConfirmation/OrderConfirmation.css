@@ -1,15 +1,20 @@
-.orderConfData-products {
+.noteToCustomer {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.colored--div {
     display: flex;
-    justify-content: space-between;
-    padding: 2px 10px 2px 70px;
-    /* border-bottom: 1px solid rgba(194, 213, 194, 0.842); */
+    align-items: center;
+    padding-left: 10px;
+    background-color: rgba(194, 213, 194, 0.842);
+    height: 2em;
+    color: rgb(41, 46, 41);
+    font-weight: 600;
+    border-radius: 2px;
 }
 
-.orderConfData-products:nth-child(odd) {
-    background-color: rgba(194, 213, 194, 0.242);
-}
-
-.order-span-setting {
+.order-li-setting {
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
@@ -20,24 +25,45 @@
     font-weight: 600;
 }
 
-.sm-p {
-    font-size: smaller;
+.ocd-productList-headings {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+
+.orderConfData-products {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px
+}
+
+.orderConfData-products:nth-child(even) {
+    background-color: rgba(194, 213, 194, 0.2);
+}
+.orderConfData-products:last-child {
+    border-bottom: 1px solid rgba(194, 213, 194, 0.842);
 }
 
 .ocd-id {
-    width: 350px;
+    width: 320px;
     overflow-wrap: break-word;
     text-align: end;
 }
 
-.ocd-price {
-    width: 20%;
+.ocd-price,
+.ocd-price-hdr {
+    width: 30%;
+    text-align: end;
 }
+
+.ocd-price {
+    min-height: 40px;
+}
+
 .ocd-desc {
-    width: 60%;
+    width: 50%;
 }
 .ocd-quan {
     width: 20%;
-    text-align: end;
 }
 

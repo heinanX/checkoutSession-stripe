@@ -1,8 +1,13 @@
 import "./OrderReview.css";
 import { Cart } from "../../interfaces/interfaces";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useSocket as useSocketUser } from "../../context/userContext";
+import { useEffect } from "react";
+import PopUp from "../PopUp/PopUp";
 
 const OrderReview = ({ cartItem }: { cartItem: Cart }) => {
+
+const { setLoginVisibility, loginVisibility, signUpVisibility, isLoggedIn } = useSocketUser()
 
     const deleteItem = (item: string) => {
         console.log('item deleted ',item);
@@ -13,6 +18,10 @@ const OrderReview = ({ cartItem }: { cartItem: Cart }) => {
     const decreaseItem = (item: string) => {
         console.log('item decreased ',item);
     };
+
+    useEffect(()=> {
+        !isLoggedIn ? setLoginVisibility(true) : null
+    },[])
 
     return (
         <li className="checkout-item">
@@ -33,6 +42,7 @@ const OrderReview = ({ cartItem }: { cartItem: Cart }) => {
                     </span>
                 </span>
             ))}
+            {loginVisibility || signUpVisibility ? <PopUp /> : <></>}
         </li>
     );
 };

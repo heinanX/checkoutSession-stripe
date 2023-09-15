@@ -1,18 +1,13 @@
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const BrowseSectionLink = () => {
 
-    const location = useLocation();
-  const currentPathname = location.pathname;
-  useEffect(() => {
-    console.log(currentPathname);
-  });
+    const { pathname} = useLocation();
   
   return (
     <>
-    {currentPathname === '/success' || currentPathname === '/failed' ? (
+    {pathname === '/success' || pathname === '/failed' ? (
               <Link to="/" style={{textDecoration: 'none', color: 'rgb(100, 100, 100)'}}>
                 <li className="fakeBtn">Browse Products</li>
               </Link>

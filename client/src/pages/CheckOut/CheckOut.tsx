@@ -3,8 +3,8 @@ import OrderReview from "../../components/OrderReview/OrderReview";
 import "./CheckOut.css";
 import { useSocket as useSocketProducts } from "../../context/productContext";
 import { useSocket as useSocketOrder } from "../../context/orderContext";
-import { Link } from "react-router-dom";
 import { SendData } from "../../interfaces/interfaces";
+import ReturnHomeBtn from "../../components/_shared_components/ReturnHomeBtn/ReturnHomeBtn";
 
 const CheckOut = () => {
   const { setCartFromLS, cart } = useSocketProducts();
@@ -57,7 +57,7 @@ const CheckOut = () => {
         src="../../../../src/assets/checkout-banner.png"
       />
       <div className="order-content">
-        <h2>Order review</h2>
+        <h2 className="h2-title-styling">Order review</h2>
         <div className="cart-review">
           <ul>
             {cart.map((element, index) => (
@@ -74,9 +74,7 @@ const CheckOut = () => {
             Place Order
           </button>
         </div>
-        <Link to={"/"}>
-          <button className="leave-cart-btn">← back to store</button>
-        </Link>
+          <ReturnHomeBtn />
       </div>
     </div>
   );

@@ -3,9 +3,11 @@ import "./OrderSuccess.css";
 import { useEffect } from "react";
 import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
 import { useSocket as useSocketOrder } from "../../context/orderContext";
+import { useSocket as useSocketProduct } from "../../context/productContext";
 
 const OrderSuccess = () => {
   const { fetchOrder, orderConfData } = useSocketOrder();
+  const { resetCart } = useSocketProduct();
   const location = useLocation();
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const OrderSuccess = () => {
     console.log(ssessionId);
 
     if (ssessionId) {
+      resetCart()
       fetchOrder(ssessionId);
     }
   }, []);
@@ -25,6 +28,7 @@ const OrderSuccess = () => {
     <div className="orderSuccess">
       <img src="../../src/assets/delivery.png" style={{ width: "100px" }} />
       <h1 style={{ fontWeight: "800" }}>Thank You For Your Order!</h1>
+      <p style={{color: 'rgb(100, 100, 100)'}}>It is now being processed and will arrive shortly</p>
       <div className="orderDataContainer">
         <OrderConfirmation />
       </div>

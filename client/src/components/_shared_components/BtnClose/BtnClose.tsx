@@ -1,4 +1,6 @@
 import { useSocket as useSocketUser  } from '../../../context/userContext'
+import HighlightOffIcon from "@mui/icons-material/HighlightOffOutlined";
+import './BtnClose.css';
 
 const BtnClose = () => {
     
@@ -9,7 +11,9 @@ const BtnClose = () => {
         if (signUpVisibility == true) { setSignUpVisibility(false)}
     }
   return (
-    <button className='close-window btn' onClick={closeWindow}>X</button>
+    <button className='close-window' onClick={closeWindow}>
+      <HighlightOffIcon className='highlightOffIcon' />
+    </button>
   )
 }
 

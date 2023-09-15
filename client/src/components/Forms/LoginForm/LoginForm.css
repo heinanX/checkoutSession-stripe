@@ -5,14 +5,14 @@
     align-items: center;
     gap: 10px;
 
-    background-color: rgb(74, 148, 134);
+    background-color: rgb(194, 213, 194);
     padding: 5em 5em;
-    border-radius: 15em;
-    box-shadow: 7px 5px 5px rgb(59, 117, 107);
+    border-radius: 4px;
+    box-shadow: 7px 5px 5px rgb(62, 68, 62);
 }
 
-.loginForm > span {
-    color: rgb(236, 254, 249);
+.instructions {
+    color: rgb(62, 68, 62);
     text-align: center;
     padding-bottom: 2em;
 }
@@ -27,7 +27,7 @@
 .loginForm > p {
     font-size: small;
     text-align: center;
-    color: rgb(236, 254, 249);
+    color: rgb(62, 68, 62);
 }
 
 .login--btn {
@@ -40,8 +40,6 @@
     background-color: rgb(242, 232, 138);
 }
 
-.close-window {
-    position: absolute;
-    top: 0;
-    right: 0;
+.login--btn:hover {
+    background-color: rgb(192, 185, 125)
 }
