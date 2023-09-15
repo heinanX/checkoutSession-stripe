@@ -1,17 +1,17 @@
-import { useEffect } from "react";
 import OrderReview from "../../components/OrderReview/OrderReview";
-import "./CheckOut.css";
 import { useSocket as useSocketProducts } from "../../context/productContext";
 import { useSocket as useSocketOrder } from "../../context/orderContext";
 import { SendData } from "../../interfaces/interfaces";
 import ReturnHomeBtn from "../../components/_shared_components/ReturnHomeBtn/ReturnHomeBtn";
+import { useEffect } from "react";
+import "./CheckOut.css";
 
 const CheckOut = () => {
   const { setCartFromLS, cart } = useSocketProducts();
   const { createCheckout } = useSocketOrder();
 
   useEffect(() => {
-    setCartFromLS();    
+    setCartFromLS();
   }, []);
 
   const totalPrice = () => {
@@ -26,6 +26,7 @@ const CheckOut = () => {
   };
 
   const handlePayment = () => {
+    if (cart.length === 0) { return alert('no products in cart') }
     const newArray: { price: string; quantity: number }[] = [];
     cart.forEach((cartItem) => {
       cartItem.product.forEach((item) => {
@@ -42,12 +43,10 @@ const CheckOut = () => {
       const userData = JSON.parse(storedData);
       const sendData: SendData = {
         order: newArray,
-        userId: userData.id
-      }
-      createCheckout(sendData)
+        userId: userData.id,
+      };
+      createCheckout(sendData);
     }
-
-
   };
 
   return (
@@ -74,7 +73,7 @@ const CheckOut = () => {
             Place Order
           </button>
         </div>
-          <ReturnHomeBtn />
+        <ReturnHomeBtn />
       </div>
     </div>
   );

@@ -1,21 +1,27 @@
 footer {
-    width: 100%;
-    padding: 30px 100px;
-    margin-top: 3em;
-    background-color: rgb(203, 223, 204);
+  width: 100%;
+  padding: 30px 100px;
+  margin-top: 3em;
+  background-color: rgb(203, 223, 204);
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.services h3, .eye-health h3, .about h3 {
-    padding-bottom: 1em;
+.services h3,
+.eye-health h3,
+.about h3 {
+  padding-bottom: 1em;
 }
-.services li, .eye-health li, .about li {
-    padding-bottom: 10px;
+.services li,
+.eye-health li,
+.about li {
+  padding-bottom: 10px;
 }
-.services li:hover, .eye-health li:hover, .about li:hover {
-    color: aliceblue;
-    cursor: pointer;
+.services li:hover,
+.eye-health li:hover,
+.about li:hover {
+  color: aliceblue;
+  cursor: pointer;
 }

@@ -26,5 +26,9 @@
   {
     "email": "stitch@lilo.com",
     "password": "$2b$10$1Np1rD8MDESeuVFjdNPuU.AWXhQhC4JqIF2Wg.8NY4uibEahiusJu"
+  },
+  {
+    "email": "Birgersson@tjoho.se",
+    "password": "$2b$10$Hdeb.x1Qi//aM6wCHsuPQ.DchJH9TtIapQNHPuwD9lQryGxvBtuwO"
   }
 ]

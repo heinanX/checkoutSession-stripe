@@ -1,46 +1,35 @@
-/* If somethign weird happened I changed the > between ch and span */
-
 .checkout-item > span {
-    padding: 1em 4em;
-    display: flex;
-    justify-content: space-between;
+  padding: 1em 4em;
+  display: flex;
+  justify-content: space-between;
 }
 .checkout-item:nth-child(even) {
-    background-color: rgba(194, 213, 194, 0.205);
+  background-color: rgba(194, 213, 194, 0.205);
 }
 
 .product-info,
 .quantity-container {
-    display: flex;
-    gap: 2em;
-}
-
-.product-info {
-
-}
-
-.quantity-container {
-
+  display: flex;
+  gap: 2em;
 }
 
 .delete-icon {
-    color: rgba(194, 213, 194);
-    cursor: pointer;
+  color: rgba(194, 213, 194);
+  cursor: pointer;
 }
 
 .delete-icon:hover {
-    color: rgb(152, 165, 152);
-
+  color: rgb(152, 165, 152);
 }
 
 .decreaseQuantity,
 .increaseQuantity {
-    border: none;
-    width: 30px;
-    border-radius: 4px;
+  border: none;
+  width: 30px;
+  border-radius: 4px;
 }
 .decreaseQuantity:hover,
 .increaseQuantity:hover {
-    color: whitesmoke;
-    background-color: rgb(152, 165, 152);
+  color: whitesmoke;
+  background-color: rgb(152, 165, 152);
 }

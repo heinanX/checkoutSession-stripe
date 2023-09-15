@@ -1,15 +1,13 @@
-import { useSocket as useSocketUser } from '../../../../context/userContext'
-import { useSocket as useSocketOrder } from '../../../../context/orderContext';
+import { useSocket as useSocketUser } from "../../../../context/userContext";
+import { useSocket as useSocketOrder } from "../../../../context/orderContext";
 import { Link } from "react-router-dom";
 import BrowseSectionLink from "../../../../components/_shared_components/BrowseSectionLink/BrowseSectionLink";
 
 import { useEffect } from "react";
-import './MA_Header.css'
+import "./MA_Header.css";
 
 const MA_Header = () => {
-  const {
-    setIsLoggedIn,
-  } = useSocketUser();
+  const { setIsLoggedIn } = useSocketUser();
 
   const { fetchUserOrders } = useSocketOrder();
 
@@ -19,10 +17,9 @@ const MA_Header = () => {
     }
   }, []);
 
-
   useEffect(() => {
-    fetchUserOrders()
-  },[])
+    fetchUserOrders();
+  }, []);
 
   return (
     <header>
@@ -39,11 +36,9 @@ const MA_Header = () => {
             <li className="fakeBtn">About us</li>
             <li className="fakeBtn">Contact us</li>
           </ul>
-
         </div>
 
         <hr style={{ borderColor: "rgba(194, 213, 194, 0.2)" }} />
-
       </div>
     </header>
   );

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const EmailInput = ({ setEmail }: { setEmail: React.Dispatch<React.SetStateAction<string>> }) => {
     return (
         <input

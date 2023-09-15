@@ -1,9 +1,10 @@
 .myOrders {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 .myOrders > li {
   padding: 10px 30px;
   letter-spacing: 3px;
+  cursor: default;
   text-transform: uppercase;
 }
 .myOrders > li:nth-child(even) {
@@ -22,7 +23,7 @@
   flex-direction: column;
 }
 
-.fullOrder-products{
+.fullOrder-products {
   background-color: rgba(213, 194, 194, 0.2);
   padding: 15px 10px;
 }
@@ -41,5 +42,14 @@
 
 .resetOrderViewBtn {
   margin-top: 2em;
+  padding: 5px 0;
   width: 80px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(242, 232, 138);
+}
+
+.resetOrderViewBtn:hover {
+  cursor: pointer;
+  background-color: rgb(192, 185, 125);
 }

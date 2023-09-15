@@ -1,69 +1,68 @@
 .noteToCustomer {
-    text-align: center;
-    padding: 2em 0;
+  text-align: center;
+  padding: 2em 0;
 }
 
 .colored--div {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    background-color: rgba(194, 213, 194, 0.842);
-    height: 2em;
-    color: rgb(41, 46, 41);
-    font-weight: 600;
-    border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background-color: rgba(194, 213, 194, 0.842);
+  height: 2em;
+  color: rgb(41, 46, 41);
+  font-weight: 600;
+  border-radius: 2px;
 }
 
 .order-li-setting {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px;
-    border-bottom: 1px solid rgba(194, 213, 194, 0.842);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(194, 213, 194, 0.842);
 }
 
 .bold-p {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .ocd-productList-headings {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
 }
 
 .orderConfData-products {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
 }
 
 .orderConfData-products:nth-child(even) {
-    background-color: rgba(194, 213, 194, 0.2);
+  background-color: rgba(194, 213, 194, 0.2);
 }
 .orderConfData-products:last-child {
-    border-bottom: 1px solid rgba(194, 213, 194, 0.842);
+  border-bottom: 1px solid rgba(194, 213, 194, 0.842);
 }
 
 .ocd-id {
-    width: 320px;
-    overflow-wrap: break-word;
-    text-align: end;
+  width: 320px;
+  overflow-wrap: break-word;
+  text-align: end;
 }
 
 .ocd-price,
 .ocd-price-hdr {
-    width: 30%;
-    text-align: end;
+  width: 30%;
+  text-align: end;
 }
 
 .ocd-price {
-    min-height: 40px;
+  min-height: 40px;
 }
 
 .ocd-desc {
-    width: 50%;
+  width: 50%;
 }
 .ocd-quan {
-    width: 20%;
+  width: 20%;
 }
-

@@ -1,83 +1,82 @@
 header {
-    position: relative;
-
+  position: relative;
 }
 
 .header-wrapper {
-    position: fixed;
-    background-color: #FFFFFF;
-    width: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 2em;
 }
 
 .btns--div {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1em;
 }
 
 .btn {
-    background-color: rgba(255, 255, 255);
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: large;
-    text-transform: uppercase;
+  background-color: rgba(255, 255, 255);
+  height: 40px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: large;
+  text-transform: uppercase;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .btn:hover {
-    background-color: rgb(250, 250, 250);
-    color: #b4cece;
+  background-color: rgb(250, 250, 250);
+  color: #b4cece;
 }
 
 .cartIndicator-div {
-    position: relative;
+  position: relative;
 }
 
 .cartIndicator {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 3px;
-    left: 10px;
-    font-size: smaller;
-    width: 18px;
-    height: 18px;
-    background-color: rgb(240, 228, 123);
-    box-shadow: 2px 2px rgb(190, 183, 112);
-    cursor: default;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 3px;
+  left: 10px;
+  font-size: smaller;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(240, 228, 123);
+  box-shadow: 2px 2px rgb(190, 183, 112);
+  cursor: default;
 
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
-.header-content> ul {
-    padding-top: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style-type: none;
-    gap: 2em;
-    text-transform: uppercase;
-    color: rgb(100, 100, 100);
+.header-content > ul {
+  padding-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  gap: 2em;
+  text-transform: uppercase;
+  color: rgb(100, 100, 100);
 }
 
 .fakeBtn:hover {
-    color: #b4cece;
-    cursor: pointer;
+  color: #b4cece;
+  cursor: pointer;
 }

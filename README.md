@@ -22,7 +22,7 @@ Länk till projektet på Github: https://github.com/heinanX/checkoutSession-stri
 
 `Krav för väl godkänt:` //: Alla uppfyllda!
 - 1. Alla punkter för godkänt är uppfyllda
-- 2. Det skall gå att ange en rabattkod för att få rabatt på sitt köp (Detta görs genom Stripe)
+- 2. Det skall gå att ange en rabattkod för att få rabatt på sitt köp (Detta görs genom Stripe) (Aktuell kupong: AUT23)
 - 3. Man skall som inloggad kunna se sina lagda ordrar.
 - 4. Samtliga placerade ordrar skall sparas till en lista i en JSON-fil.
 - 5. Ordern får inte under några omständigheter läggas utan genomförd betalning! (dvs. Spara aldrig ett orderobjekt såvida ni inte fått bekräftelse tillbaka ifrån stripe att betalningen gått igenom)
@@ -91,5 +91,7 @@ Skriv sedan `o` i terminalen så öppnas applikationen i din standardwebbläsare
 ### Steg 4: Kolla in sidan och lägg en order
 
 Nu när både servern och klienten är igång kan du besöka `COOLSPECS`-hemsida och köpa dig ett par snygga brillor! På sidan kan du skapa en inloggning eller använda en av de som finns i databasen. Har du glömt vad du köpt? Du kan lätt kolla dina ordrar under 'My Account'-fliken. Sidan flexar härligt mellan svenska och engelska och är fortfarande ett WIP när det kommer till funktioner som inte är kopplade till uppgiften. T.ex. vill du tömma din cart får du rensa localhost. Just nu iaf.
+
+Vill du testa logga in med en färdig user har de flesta 12345 i lösenord.
 
 Tack å hej! 🚀

@@ -1,25 +1,14 @@
-import { useEffect } from "react"
-import Header from "../../components/Header/Header"
-import OrderSuccess from "../../components/Order_Success/OrderSuccess"
-import { useSocket as useSocketUser } from '../../context/userContext';
-
+import Header from "../../components/Header/Header";
+import OrderSuccess from "../../components/Order_Success/OrderSuccess";
 
 const Success = () => {
 
-  const {isLoggedIn} = useSocketUser()
-
-    useEffect(()=> {
-    console.log(isLoggedIn);
-    
-  },[])
-
-
   return (
     <>
-    <Header />
-    <OrderSuccess />
+      <Header />
+      <OrderSuccess />
     </>
-  )
-}
+  );
+};
 
-export default Success
+export default Success;

@@ -4,32 +4,33 @@ import { Cart, Product, ProductContext } from "../interfaces/interfaces";
 
 const defaultValues = {
   products: [],
-  setProducts: () => { },
-  getProducts: () => { },
-  addToCart: () => { },
+  setProducts: () => {},
+  getProducts: () => {},
+  addToCart: () => {},
   cart: [],
-  setCart: () => { },
-  setCartFromLS: () => {  },
-  resetCart: () => {  }
-}
+  setCart: () => {},
+  setCartFromLS: () => {},
+  resetCart: () => {},
+};
 
-export const ProductContextValues = createContext<ProductContext>(defaultValues)
+export const ProductContextValues =
+  createContext<ProductContext>(defaultValues);
 
-export const useSocket = () => useContext(ProductContextValues)
+export const useSocket = () => useContext(ProductContextValues);
 
 //---------------------- Provider begins here
 
 function ProductProvider({ children }: PropsWithChildren) {
-  const [products, setProducts] = useState<Product[]>([])
-  const [cart, setCart] = useState<Cart[]>([])
+  const [products, setProducts] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Cart[]>([]);
 
   // FUNCTION THAT FETCHES PRODUCTS FROM STRIPE
   const getProducts = async () => {
-    const res = await fetch('http://localhost:3000/api/products')
+    const res = await fetch("http://localhost:3000/api/products");
     const data = await res.json();
-    
-    setProducts(data.productsArray)
-  }
+
+    setProducts(data.productsArray);
+  };
 
   // FUNCTION THAT ADDS PRODUCTS TO CART
   const addToCart = (productData: Product) => {
@@ -40,7 +41,7 @@ function ProductProvider({ children }: PropsWithChildren) {
     if (duplicateProduct) {
       duplicateProduct.quantity += 1;
       setCart([...cart]);
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       const updatedCart = [
         ...cart,
@@ -50,41 +51,43 @@ function ProductProvider({ children }: PropsWithChildren) {
         },
       ];
       setCart(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
 
-    // FUNCTION THAT ADDS PRODUCTS TO CART FROM LOCALSTORAGE
+  // FUNCTION THAT ADDS PRODUCTS TO CART FROM LOCALSTORAGE
   const setCartFromLS = () => {
     const cartData = localStorage.getItem("cart");
-  
+
     if (cartData !== null) {
       const oldItems = JSON.parse(cartData) as Cart[];
       setCart(oldItems);
     } else {
       localStorage.setItem("cart", JSON.stringify([]));
     }
-  }
+  };
 
   const resetCart = () => {
-    setCart([])
-    localStorage.setItem("cart", JSON.stringify([]))
-  }
+    setCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+  };
 
   return (
-    <ProductContextValues.Provider value={{
-      products,
-      setProducts,
-      getProducts,
-      addToCart,
-      cart,
-      setCart,
-      setCartFromLS,
-      resetCart
-    }}>
+    <ProductContextValues.Provider
+      value={{
+        products,
+        setProducts,
+        getProducts,
+        addToCart,
+        cart,
+        setCart,
+        setCartFromLS,
+        resetCart,
+      }}
+    >
       {children}
     </ProductContextValues.Provider>
-  )
+  );
 }
 
-export default ProductProvider
+export default ProductProvider;
