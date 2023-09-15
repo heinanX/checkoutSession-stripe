@@ -4,7 +4,6 @@ import "./OrderConfirmation.css";
 const OrderConfirmation = () => {
   const { orderConfData } = useSocketOrder();
 
-
   return (
     <>
       <h4 className="noteToCustomer">
@@ -30,7 +29,7 @@ const OrderConfirmation = () => {
           <p>{orderConfData.orderTotal} kr</p>
         </li>
 
-        {orderConfData.discount > 0? (
+        {orderConfData.discount > 0 ? (
           <li className="sm-p order-li-setting">
             <p className="bold-p">Order Discount:</p>
             <p>{orderConfData.discount} kr</p>

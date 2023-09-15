@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { useSocket as useSocketUser } from "../../../context/userContext";
 import BtnClose from "../../_shared_components/BtnClose/BtnClose";
 import EmailInput from "../../_shared_components/Form_inputs/EmailInput";
 import PasswordInput from "../../_shared_components/Form_inputs/PasswordInput";
-import "./SignUpForm.css";
 import { useLocation, Link } from "react-router-dom";
+import { useState } from "react";
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const { setLoginVisibility, setSignUpVisibility, signUp } = useSocketUser();
@@ -21,8 +21,6 @@ const SignUpForm = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(uname, email, pass);
-
     signUp(uname, email, pass);
   };
 
@@ -56,7 +54,10 @@ const SignUpForm = () => {
       <PasswordInput setPass={setPass} />
 
       <p>
-        Already a customer? <a className="a-styling" onClick={switchForm}>Login here</a>
+        Already a customer?{" "}
+        <a className="a-styling" onClick={switchForm}>
+          Login here
+        </a>
       </p>
 
       <button className="signUp--btn" type="submit">

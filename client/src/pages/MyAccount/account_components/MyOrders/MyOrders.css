@@ -1,5 +1,5 @@
 .myOrders {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 .myOrders > li {
   padding: 10px 30px;
@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 
-.fullOrder-products{
+.fullOrder-products {
   background-color: rgba(213, 194, 194, 0.2);
   padding: 15px 10px;
 }

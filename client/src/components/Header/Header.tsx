@@ -1,13 +1,13 @@
 import { useSocket as useSocketUser } from "../../context/userContext";
 import { useSocket as useSocketProducts } from "../../context/productContext";
-import PopUp from "../PopUp/PopUp";
-import "./Header.css";
 import Announcement from "../Announcement/Announcement";
 import { Link, useLocation } from "react-router-dom";
 import Dropdown_MyAccount from "../_shared_components/Dropdown_MyAccount/Dropdown_MyAccount";
 import BrowseSectionLink from "../_shared_components/BrowseSectionLink/BrowseSectionLink";
 import { useEffect } from "react";
 import BuyBtn from "../_smaller_components/BuyBtn";
+import PopUp from "../PopUp/PopUp";
+import "./Header.css";
 
 const Header = () => {
   const {
