@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const createOrder = async (req, res) => {
 
-    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in'})}
+    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in' }) }
 
     const session = await stripe.checkout.sessions.create({
         success_url: 'http://localhost:5173/success?id={CHECKOUT_SESSION_ID}',
@@ -45,13 +45,22 @@ const createOrderLocally = (order) => {
 
 const getOrders = async (req, res) => {
 
-    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in'})}
+    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in' }) }
+    try {
+        fs.readFile('./src/db/orders.json', (err, data) => {
+            if (err) {
+                console.error('Error reading file:', err);
+                return;
+            }
+            const orderData = JSON.parse(data);
+            const userOrders = orderData.filter(order => order.customerId === req.session.user.id);
+            
+            res.status(200).json( userOrders )
+        });
+    } catch (error) {
 
-    const sessions = await stripe.checkout.sessions.list({
-        customer: req.session.user.id,
-      });
+    }
 
-    res.status(200).json({ sessions })
 }
 
 const setOrderDate = (setDate) => {
@@ -63,7 +72,7 @@ const setOrderDate = (setDate) => {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-      })}`;
+    })}`;
     return formattedDate;
 }
 

@@ -1,6 +1,8 @@
 import { useSocket as useSocketUser } from '../../../../context/userContext'
+import { useSocket as useSocketOrder } from '../../../../context/orderContext';
 import { Link } from "react-router-dom";
 import BrowseSectionLink from "../../../../components/_shared_components/BrowseSectionLink/BrowseSectionLink";
+
 import { useEffect } from "react";
 import './MA_Header.css'
 
@@ -9,11 +11,18 @@ const MA_Header = () => {
     setIsLoggedIn,
   } = useSocketUser();
 
+  const { fetchUserOrders } = useSocketOrder();
+
   useEffect(() => {
     if (localStorage.getItem("user")) {
       setIsLoggedIn(true);
     }
   }, []);
+
+
+  useEffect(() => {
+    fetchUserOrders()
+  },[])
 
   return (
     <header>

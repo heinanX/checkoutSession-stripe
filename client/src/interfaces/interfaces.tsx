@@ -33,6 +33,8 @@ export interface OrderContext {
     fetchOrder: (sessionId: string) => Promise<void>;
     orderConfData: orderConfData;
     setOrderConfData: React.Dispatch<React.SetStateAction<orderConfData>>;
+    userOrders: userOrderData[];
+    fetchUserOrders: () => Promise<void>
 }
 
 //# INTERFACE FOR PRODUCTS FROM STRIPE
@@ -95,3 +97,17 @@ export interface orderConfData {
     created: number;
     discount: number;
 }
+// # INTERFACE FOR SENDING ORDER AND CUSTOMER DATA TO BACKEND
+export interface userOrderData {
+        id: string;
+        products: ProductData[]; 
+        orderTotal: number;
+        customerId: string;
+        customer: string;
+        status: string;
+        created: number;
+}
+/* export interface userOrderData {
+        userOrder: orderConfData[]
+
+} */

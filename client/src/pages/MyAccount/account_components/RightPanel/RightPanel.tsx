@@ -6,7 +6,6 @@ interface RightPanelProps {
 }
 
 const RightPanel = ({ visibility }: RightPanelProps) => {
-    console.log(visibility);
     let content;
 
     switch (visibility) {

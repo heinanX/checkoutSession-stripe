@@ -1,15 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropsWithChildren, createContext, useContext, useState } from "react";
-import { OrderContext, SendData, orderConfData } from "../interfaces/interfaces";
+import { OrderContext, SendData, orderConfData, userOrderData } from "../interfaces/interfaces";
 
 
 const defaultValues = {
   createCheckout: async (data: SendData) => { },
-  fetchOrder: async (sessionId: string) => {  },
-  orderConfData: { 
+  fetchOrder: async (sessionId: string) => { },
+  orderConfData: {
     id: '',
-    products: [], 
+    products: [],
     orderTotal: 0,
     customerId: '',
     customer: '',
@@ -17,7 +17,10 @@ const defaultValues = {
     created: 0,
     discount: 0
   },
-  setOrderConfData: () => { }
+  setOrderConfData: () => { },
+  userOrders: [],
+  fetchUserOrders: async () => { },
+
 }
 
 export const OrderContextValues = createContext<OrderContext>(defaultValues)
@@ -25,11 +28,9 @@ export const useSocket = () => useContext(OrderContextValues)
 
 function OrderProvider({ children }: PropsWithChildren) {
 
-  //## UseStates
-
-  const [orderConfData, setOrderConfData ] = useState<orderConfData>({ 
+  const [orderConfData, setOrderConfData] = useState<orderConfData>({
     id: '',
-    products: [], 
+    products: [],
     orderTotal: 0,
     customerId: '',
     customer: '',
@@ -37,6 +38,15 @@ function OrderProvider({ children }: PropsWithChildren) {
     created: 0,
     discount: 0
   });
+  const [userOrders, setUserOrders] = useState<userOrderData[]>([{
+    id: '',
+    products: [],
+    orderTotal: 0,
+    customerId: '',
+    customer: '',
+    status: '',
+    created: 0
+  }]);
 
   async function createCheckout(data: SendData) {
     const response = await fetch("/api/create-checkout-session",
@@ -61,15 +71,24 @@ function OrderProvider({ children }: PropsWithChildren) {
     const res = await fetch(`/api/orders/${sessionId}`)
     const data = await res.json()
     setOrderConfData(data)
-    
- }
+  }
+
+  const fetchUserOrders = async () => {
+    const res = await fetch('/api/orders')
+    const data = await res.json()
+    setUserOrders(data)
+
+    //console.log(data);
+  }
 
   return (
     <OrderContextValues.Provider value={{
       createCheckout,
       fetchOrder,
       orderConfData,
-      setOrderConfData 
+      setOrderConfData,
+      userOrders,
+      fetchUserOrders
     }}>
       {children}
     </OrderContextValues.Provider>
