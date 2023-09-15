@@ -92,4 +92,5 @@ export interface orderConfData {
     customerId: string;
     customer: string;
     status: string;
+    created: number;
 }

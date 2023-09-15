@@ -2,19 +2,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
 const fs = require('fs')
 
 const createOrder = async (req, res) => {
-    
+
     const session = await stripe.checkout.sessions.create({
         success_url: 'http://localhost:5173/success?id={CHECKOUT_SESSION_ID}',
-        cancel_url: 'http://localhost:5173/failed',    
-        payment_method_types:['card'],
+        cancel_url: 'http://localhost:5173/failed',
+        payment_method_types: ['card'],
         mode: 'payment',
         currency: 'sek',
         allow_promotion_codes: true, //new
         customer: req.body.userId,
         line_items: req.body.order
-        })
-        res.status(200).json({
-            url: session.url,
+    })
+    res.status(200).json({
+        url: session.url,
     });
 
 
@@ -42,29 +42,49 @@ const createOrderLocally = (order) => {
 
 
 const getOrders = (req, res) => {
-    res.status(200).json({ message: 'get orders'})
+    res.status(200).json({ message: 'get orders' })
 }
 
 const getOrder = async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(req.params.id,
-    {expand: ['line_items']})
+        { expand: ['line_items'] })
 
-    if (session.payment_status === 'paid'){
+    if (session.payment_status === 'paid') {
+
+        const products = [];
+
+        for (const product of session.line_items.data) {
+            const newProductObject = {
+                id: product.id,
+                amount_discount: product.amount_discount,
+                amount_total: product.amount_total,
+                description: product.description,
+                price: {
+                    id: product.price.id,
+                    unit_amount: product.price.unit_amount
+                },
+                quantity: product.quantity
+            }
+            products.push(newProductObject)
+        }
+
         const newOrderObject = {
             id: session.id,
-            products: session.line_items.data,
+            products: products,
             orderTotal: session.amount_total / 100,
             customerId: session.customer,
             customer: session.customer_details.email,
-            status: session.status
+            status: session.status,
+            created: session.created
         }
 
         createOrderLocally(newOrderObject)
+
         res.status(200).json(newOrderObject)
     }
- 
+
 }
 
 
 
-module.exports = { getOrders, getOrder, createOrder}
+module.exports = { getOrders, getOrder, createOrder }
