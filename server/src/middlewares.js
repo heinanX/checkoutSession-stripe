@@ -45,6 +45,28 @@ const unhashPass = (req, res, next) => {
     }
 }
 
+// Function that checks incoming email 
+const checkAvailability = (req, res, next) => {
+   try {
+    fs.readFile('./src/db/users.json', (err, data) => {
+        if (err) { res.status(404).send(`Unable to read source file. See ${err}`) }
+        const userData = JSON.parse(data);
+      
+        const user = userData.find((user) => user.email === req.body.email);
+        if (user) {
+            res.status(402).json({message: 'User already exists'});
+            return;
+          }
+
+      })
+
+      next();
+   } catch (error) {
+    
+   }
+
+}
 
 
-module.exports = { hashPass, unhashPass }
+
+module.exports = { hashPass, unhashPass, checkAvailability }
