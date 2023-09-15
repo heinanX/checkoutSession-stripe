@@ -16,3 +16,30 @@
   letter-spacing: 3px;
   background-color: antiquewhite;
 }
+
+.fullOrder {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullOrder-products{
+  background-color: rgba(213, 194, 194, 0.2);
+  padding: 15px 10px;
+}
+
+.fullOrder-products > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+
+.fullOrder-price {
+  text-align: end;
+  font-size: small;
+  padding: 4px 0;
+}
+
+.resetOrderViewBtn {
+  margin-top: 2em;
+  width: 80px;
+}

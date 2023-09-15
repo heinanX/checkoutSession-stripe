@@ -106,6 +106,7 @@ export interface userOrderData {
         customer: string;
         status: string;
         created: number;
+        discount: number
 }
 /* export interface userOrderData {
         userOrder: orderConfData[]

@@ -45,7 +45,8 @@ function OrderProvider({ children }: PropsWithChildren) {
     customerId: '',
     customer: '',
     status: '',
-    created: 0
+    created: 0,
+    discount: 0
   }]);
 
   async function createCheckout(data: SendData) {
@@ -78,7 +79,7 @@ function OrderProvider({ children }: PropsWithChildren) {
     const data = await res.json()
     setUserOrders(data)
 
-    //console.log(data);
+    console.log(data);
   }
 
   return (
