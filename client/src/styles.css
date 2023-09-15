@@ -1,35 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;600;800&family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;600;800&family=Poppins:wght@300&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
 }
 
 body {
-    height: 100vh;   
+  height: 100vh;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
+}
+
+.let-space-3 {
+  letter-spacing: 3px;
 }
 
 .btn-style {
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(194, 213, 194);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(194, 213, 194);
 }
 
 .btn-style:hover {
-    background-color: rgb(134, 146, 134);
+  background-color: rgb(134, 146, 134);
 }
 
 .h2-title-styling {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    padding: 3px 7px 3px 10px;
-    letter-spacing: 10px;
-    background-color: antiquewhite;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding: 3px 7px 3px 10px;
+  letter-spacing: 10px;
+  background-color: antiquewhite;
 }

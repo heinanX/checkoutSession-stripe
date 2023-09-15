@@ -1,8 +1,18 @@
+.myOrders {
+    padding-top: 10px;
+}
 .myOrders > li {
-    padding: 10px 30px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  padding: 10px 30px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 .myOrders > li:nth-child(even) {
-    background-color: rgba(194, 213, 194, 0.2);
+  background-color: rgba(194, 213, 194, 0.2);
+}
+
+.myOrders-h4 {
+  display: inline;
+  padding: 3px 7px 3px 10px;
+  letter-spacing: 3px;
+  background-color: antiquewhite;
 }
