@@ -14,11 +14,11 @@ const RightPanel = ({ visibility }: RightPanelProps) => {
         break;
 
         case 'my cupons':
-            content = <p>this is cupons</p>
+            content = <p>This area is still under construction. It is where eligible coupons will be stored.</p>
         break;
 
         default:
-            content = <p>this is landing page</p>
+            content = <p>This area is still under construction. Only 'MY ORDERS' are currently available.</p>
         break;
     }
 

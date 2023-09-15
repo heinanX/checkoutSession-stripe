@@ -14,5 +14,9 @@
   {
     "email": "abcd@gmail.com",
     "password": "$2b$10$BTcVEuuKW8ZAXppTHyRJs.S4DIwt/v8hxWLqhBY.HyjSxBkuG1PaS"
+  },
+  {
+    "email": "juni@juni.se",
+    "password": "$2b$10$PWaAPBDtNJOXsjanYKtQReEjXVl5lau2G5AhSeACi0Jd9sx7qIpYq"
   }
 ]

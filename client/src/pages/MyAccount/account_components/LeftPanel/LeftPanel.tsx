@@ -1,3 +1,4 @@
+import { useSocket as useSocketUser } from '../../../../context/userContext';
 import './LeftPanel.css'
 
 interface LeftPanelProps {
@@ -5,6 +6,10 @@ interface LeftPanelProps {
 }
 
 const LeftPanel = ({setVisibility}: LeftPanelProps) => {
+
+    const { logOut } = useSocketUser();
+    
+
   return (
     <div className='leftPanel--div'>
         <div className='user-div'>
@@ -22,8 +27,8 @@ const LeftPanel = ({setVisibility}: LeftPanelProps) => {
             <li onClick={() =>  setVisibility('my cupons')}>
                 My Cupons
             </li>
-            <li onClick={() =>  setVisibility('log out')}>
-                Log Out
+            <li onClick={logOut}>
+                log Out
             </li>
         </ul>
     </div>

@@ -10,5 +10,6 @@
   display: flex;
   width: 90%;
   max-width: 1050px;
+  border-radius: 4px;
   border: 1px solid rgba(194, 213, 194, 0.842);
 }
