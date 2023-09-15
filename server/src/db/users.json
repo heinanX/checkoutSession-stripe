@@ -30,5 +30,21 @@
   {
     "email": "Birgersson@tjoho.se",
     "password": "$2b$10$Hdeb.x1Qi//aM6wCHsuPQ.DchJH9TtIapQNHPuwD9lQryGxvBtuwO"
+  },
+  {
+    "email": "er@hot.com",
+    "password": "$2b$10$Y0TVYQrruN1I1LaA6k.bROkgc3f5EAM.6.atVeh3dCrcp/BKPVvKW"
+  },
+  {
+    "email": "sam@user.com",
+    "password": "$2b$10$7T6mmBQRTBCKN1BRl0eF4ugqCm2bUGa8OOH2qmWXZdgdOyouzNbnu"
+  },
+  {
+    "email": "wilma@user.com",
+    "password": "$2b$10$3awW4xREBWwC3Gd.QFv5m.OQbDc3QGvXMy5chaMlpDTSWwDd8DWf6"
+  },
+  {
+    "email": "tarzan@user.com",
+    "password": "$2b$10$tUC1Z2j08tGiizQZzt0nVuOfwM6dVgC0tqyVBIub/EmYxTngG2t4u"
   }
 ]

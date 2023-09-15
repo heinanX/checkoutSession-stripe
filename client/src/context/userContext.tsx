@@ -69,6 +69,11 @@ function UserProvider({ children }: PropsWithChildren) {
       if (res.ok) {
         loginVisibility ? setLoginVisibility(false) : null;
         signUpVisibility ? setSignUpVisibility(false) : null;
+        
+        setTimeout(() => {
+          login(mail, pass);
+        }, 3000);
+
       } else {
         alert("user already exists");
       }

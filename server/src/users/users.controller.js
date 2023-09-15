@@ -50,7 +50,7 @@ const createUser = async (req, res) => {
       description: description
     });
   
-    res.status(201).json({ user })
+    
     fs.readFile('./src/db/users.json', (err, data) => {
       if (err) { res.status(404).send(`Unable to read source file. See ${err}`) }
       const userData = JSON.parse(data);
@@ -65,7 +65,7 @@ const createUser = async (req, res) => {
       fs.writeFile('./src/db/users.json', JSON.stringify(userData, null, 2), function (err) {
         if (err) { res.status(404).send(`Unable to write file. See ${err}`) }});
     })
-   
+    res.status(201).json({ user })
   } catch (error) {
     console.error(error);
   }
