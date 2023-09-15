@@ -93,4 +93,5 @@ export interface orderConfData {
     customer: string;
     status: string;
     created: number;
+    discount: number;
 }

@@ -45,11 +45,26 @@ const getOrders = (req, res) => {
     res.status(200).json({ message: 'get orders' })
 }
 
+const setOrderDate = (setDate) => {
+    const date = new Date(setDate * 1000);
+    const formattedDate = `${date.toLocaleString("en-GB", {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      })}`;
+    return formattedDate;
+}
+
 const getOrder = async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(req.params.id,
         { expand: ['line_items'] })
 
     if (session.payment_status === 'paid') {
+
+
 
         const products = [];
 
@@ -75,7 +90,8 @@ const getOrder = async (req, res) => {
             customerId: session.customer,
             customer: session.customer_details.email,
             status: session.status,
-            created: session.created
+            created: setOrderDate(session.created),
+            discount: session.total_details.amount_discount / 100
         }
 
         createOrderLocally(newOrderObject)
