@@ -40,6 +40,9 @@
 .orderConfData-products:nth-child(even) {
     background-color: rgba(194, 213, 194, 0.2);
 }
+.orderConfData-products:last-child {
+    border-bottom: 1px solid rgba(194, 213, 194, 0.842);
+}
 
 .ocd-id {
     width: 320px;

@@ -3,6 +3,8 @@ const fs = require('fs')
 
 const createOrder = async (req, res) => {
 
+    if (!req.body.userId) { res.status(404).json({ message: 'you need to be logged in'})}
+
     const session = await stripe.checkout.sessions.create({
         success_url: 'http://localhost:5173/success?id={CHECKOUT_SESSION_ID}',
         cancel_url: 'http://localhost:5173/failed',
@@ -63,8 +65,6 @@ const getOrder = async (req, res) => {
         { expand: ['line_items'] })
 
     if (session.payment_status === 'paid') {
-
-
 
         const products = [];
 
