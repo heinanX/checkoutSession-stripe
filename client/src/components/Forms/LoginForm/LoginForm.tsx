@@ -53,7 +53,7 @@ const LoginForm = () => {
 
             <PasswordInput setPass={setPass} />
 
-            <p>Need to <a onClick={switchForm}>sign up</a>?</p>
+            <p>Need to <a className='a-styling' onClick={switchForm}>sign up</a>?</p>
 
             <button className='login--btn' type="submit">Login</button>
         </form>

@@ -1,5 +1,4 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRETKEY)
-const { log } = require('console');
 const fs = require('fs')
 
 const getUsers = async (req, res) => {
@@ -31,7 +30,6 @@ const loginUser = async (req, res) => {
   }
 
   req.session.user = userObject
-
   res.status(200).json({ userObject })
 }
 

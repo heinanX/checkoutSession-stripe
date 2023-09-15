@@ -56,7 +56,7 @@ const SignUpForm = () => {
       <PasswordInput setPass={setPass} />
 
       <p>
-        Already a customer? <a onClick={switchForm}>Login here</a>
+        Already a customer? <a className="a-styling" onClick={switchForm}>Login here</a>
       </p>
 
       <button className="signUp--btn" type="submit">

@@ -14,5 +14,17 @@
   {
     "email": "abcd@gmail.com",
     "password": "$2b$10$BTcVEuuKW8ZAXppTHyRJs.S4DIwt/v8hxWLqhBY.HyjSxBkuG1PaS"
+  },
+  {
+    "email": "juni@juni.se",
+    "password": "$2b$10$PWaAPBDtNJOXsjanYKtQReEjXVl5lau2G5AhSeACi0Jd9sx7qIpYq"
+  },
+  {
+    "email": "lilo@stitch.com",
+    "password": "$2b$10$Eu8tMTSZe5SVLSNknNtKu.hAu9USBliZV4nvTs1iYxmK1GtAH4SNu"
+  },
+  {
+    "email": "stitch@lilo.com",
+    "password": "$2b$10$1Np1rD8MDESeuVFjdNPuU.AWXhQhC4JqIF2Wg.8NY4uibEahiusJu"
   }
 ]

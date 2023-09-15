@@ -76,16 +76,13 @@ function UserProvider({ children }: PropsWithChildren) {
           })
         })
       if (res.ok) {
-        // Handle successful login here, e.g., set isLoggedIn to true
         console.log('customer ', mail, ' has been created');
 
         loginVisibility ? setLoginVisibility(false) : null
         signUpVisibility ? setSignUpVisibility(false) : null
-        login(mail, pass)
 
       } else {
-        // Handle login error, e.g., show an error message
-        alert('missing a field');
+        alert('user already exists');
       }
     } catch (error) {
       console.log('Sign up failed');

@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Success from '../pages/Success/Success';
 import Failed from '../pages/Failed/Failed';
 import CheckOut from '../pages/CheckOut/CheckOut';
+import MyAccount from '../pages/MyAccount/MyAccount';
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Route path="/success" element={ <Success />} />
       <Route path="/failed" element={<Failed />} />
       <Route path="/checkout" element={<CheckOut />} />
+      <Route path="/my_account" element={<MyAccount />} />
     </Routes>
     </>
   );
