@@ -57,7 +57,7 @@ const Header = () => {
               <></>
             )}
             <div className="cartIndicator-div">
-              <Link to={"/checkout"}>
+              <Link to={"/checkout"} style={{textDecoration: 'none'}}>
                 <BuyBtn />
               </Link>
             </div>

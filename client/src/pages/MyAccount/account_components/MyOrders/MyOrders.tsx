@@ -20,6 +20,7 @@ const MyOrders = () => {
   return (
     <>
       <h4 className="myOrders-h4">Order History:</h4>
+      <p style={{paddingTop: '10px', fontSize:'smaller'}}>Click on any date for more information.</p>
       <ul className="myOrders">
         {!showOrder ? (
           userOrders.map((element) => (
@@ -84,7 +85,7 @@ const MyOrders = () => {
               </span>
             </span>
             <button className="resetOrderViewBtn" onClick={resetOrderView}>
-              return
+            ← return
             </button>
           </li>
         )}

@@ -64,7 +64,7 @@ export interface Cart {
 export interface User {
   email: string;
   password: string;
-  description: string;
+  uname: string;
 }
 
 // # INTERFACE FOR SENDING ORDER AND CUSTOMER DATA TO BACKEND

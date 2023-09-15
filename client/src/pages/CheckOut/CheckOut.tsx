@@ -26,6 +26,7 @@ const CheckOut = () => {
   };
 
   const handlePayment = () => {
+    if (cart.length === 0) { return alert('no products in cart') }
     const newArray: { price: string; quantity: number }[] = [];
     cart.forEach((cartItem) => {
       cartItem.product.forEach((item) => {

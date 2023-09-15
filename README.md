@@ -92,4 +92,6 @@ Skriv sedan `o` i terminalen så öppnas applikationen i din standardwebbläsare
 
 Nu när både servern och klienten är igång kan du besöka `COOLSPECS`-hemsida och köpa dig ett par snygga brillor! På sidan kan du skapa en inloggning eller använda en av de som finns i databasen. Har du glömt vad du köpt? Du kan lätt kolla dina ordrar under 'My Account'-fliken. Sidan flexar härligt mellan svenska och engelska och är fortfarande ett WIP när det kommer till funktioner som inte är kopplade till uppgiften. T.ex. vill du tömma din cart får du rensa localhost. Just nu iaf.
 
+Vill du testa logga in med en färdig user har de flesta 12345 i lösenord.
+
 Tack å hej! 🚀

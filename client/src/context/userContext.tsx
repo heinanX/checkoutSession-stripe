@@ -86,8 +86,7 @@ function UserProvider({ children }: PropsWithChildren) {
         },
         body: JSON.stringify({}),
       });
-
-      const data = await res.json();
+      
       localStorage.removeItem("user");
       setIsLoggedIn(false);
     } catch (error) {
@@ -102,7 +101,7 @@ function UserProvider({ children }: PropsWithChildren) {
       if (res.ok) {
         setIsLoggedIn(true);
         !localStorage.getItem("user")
-          ? localStorage.setItem("user", data)
+          ? localStorage.setItem("user", JSON.stringify(data))
           : null;
       }
     } catch (error) {
