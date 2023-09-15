@@ -14,6 +14,8 @@ const defaultValues = {
     customerId: '',
     customer: '',
     status: '',
+    created: 0,
+    discount: 0
   },
   setOrderConfData: () => { }
 }
@@ -32,6 +34,8 @@ function OrderProvider({ children }: PropsWithChildren) {
     customerId: '',
     customer: '',
     status: '',
+    created: 0,
+    discount: 0
   });
 
   async function createCheckout(data: SendData) {

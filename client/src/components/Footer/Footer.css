@@ -13,7 +13,7 @@ footer {
     padding-bottom: 1em;
 }
 .services li, .eye-health li, .about li {
-    padding-bottom: 3px;
+    padding-bottom: 10px;
 }
 .services li:hover, .eye-health li:hover, .about li:hover {
     color: aliceblue;

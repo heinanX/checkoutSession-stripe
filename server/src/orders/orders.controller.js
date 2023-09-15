@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const createOrder = async (req, res) => {
 
-    if (!req.body.userId) { res.status(404).json({ message: 'you need to be logged in'})}
+    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in'})}
 
     const session = await stripe.checkout.sessions.create({
         success_url: 'http://localhost:5173/success?id={CHECKOUT_SESSION_ID}',
@@ -43,8 +43,15 @@ const createOrderLocally = (order) => {
 };
 
 
-const getOrders = (req, res) => {
-    res.status(200).json({ message: 'get orders' })
+const getOrders = async (req, res) => {
+
+    if (!req.session.user) { return res.status(404).json({ message: 'you need to be logged in'})}
+
+    const sessions = await stripe.checkout.sessions.list({
+        customer: req.session.user.id,
+      });
+
+    res.status(200).json({ sessions })
 }
 
 const setOrderDate = (setDate) => {
