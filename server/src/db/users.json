@@ -8,18 +8,6 @@
     "password": "$2b$10$FaSgA3YlJNOMHiBz.0gPau0yf1IdR839Yaw5hVnYWa89L3zi.7pcC"
   },
   {
-    "email": "larrii@live.se",
-    "password": "$2b$10$t8z8kyuuZNvVbucTGFWefeOvHdcsqF6t3CMyOtq19gLj1z6wdjfMy"
-  },
-  {
-    "email": "abcd@gmail.com",
-    "password": "$2b$10$BTcVEuuKW8ZAXppTHyRJs.S4DIwt/v8hxWLqhBY.HyjSxBkuG1PaS"
-  },
-  {
-    "email": "juni@juni.se",
-    "password": "$2b$10$PWaAPBDtNJOXsjanYKtQReEjXVl5lau2G5AhSeACi0Jd9sx7qIpYq"
-  },
-  {
     "email": "lilo@stitch.com",
     "password": "$2b$10$Eu8tMTSZe5SVLSNknNtKu.hAu9USBliZV4nvTs1iYxmK1GtAH4SNu"
   },
@@ -28,7 +16,7 @@
     "password": "$2b$10$1Np1rD8MDESeuVFjdNPuU.AWXhQhC4JqIF2Wg.8NY4uibEahiusJu"
   },
   {
-    "email": "Birgersson@tjoho.se",
-    "password": "$2b$10$Hdeb.x1Qi//aM6wCHsuPQ.DchJH9TtIapQNHPuwD9lQryGxvBtuwO"
+    "email": "julie@live.se",
+    "password": "$2b$10$1R7k55ik05BhBVK3N70J9OMeK00DIGmPvlPEbiPxBnKvdiYkVzYwi"
   }
 ]

@@ -6,7 +6,7 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "koda@kodak.com",
+    "email": "julie@live.se",
     "password": "12345"
 }
 
@@ -23,9 +23,9 @@ POST http://localhost:3000/api/users/sign-up
 Content-Type: application/json
 
 {
-    "email": "larrii@live.se",
+    "email": "julie@live.se",
     "password": "12345",
-    "description": "Linda"
+    "description": "Julie"
 }
 
 

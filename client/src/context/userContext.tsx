@@ -42,7 +42,6 @@ function UserProvider({ children }: PropsWithChildren) {
 
         loginVisibility ? setLoginVisibility(false) : null;
         signUpVisibility ? setSignUpVisibility(false) : null;
-
         const data = await res.json();
         localStorage.setItem("user", JSON.stringify(data.userObject));
       } else {
@@ -69,6 +68,12 @@ function UserProvider({ children }: PropsWithChildren) {
       if (res.ok) {
         loginVisibility ? setLoginVisibility(false) : null;
         signUpVisibility ? setSignUpVisibility(false) : null;
+        
+        setTimeout(() => {
+          login(mail, pass);
+          loginVisibility ? setLoginVisibility(false) : null;
+        }, 1000);
+
       } else {
         alert("user already exists");
       }

@@ -11,17 +11,15 @@ const createOrder = async (req, res) => {
         payment_method_types: ['card'],
         mode: 'payment',
         currency: 'sek',
-        allow_promotion_codes: true, //new
+        allow_promotion_codes: true,
         customer: req.body.userId,
         line_items: req.body.order
     })
     res.status(200).json({
         url: session.url,
     });
-
-
-    //res.status(200).json({ message: 'create order'})
 }
+
 const createOrderLocally = (order) => {
     fs.readFile('./src/db/orders.json', (err, data) => {
         if (err) {

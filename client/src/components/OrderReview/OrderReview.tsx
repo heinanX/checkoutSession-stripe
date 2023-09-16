@@ -20,7 +20,9 @@ const OrderReview = ({ cartItem }: { cartItem: Cart }) => {
   };
 
   useEffect(() => {
-    !isLoggedIn ? setLoginVisibility(true) : null;
+    !isLoggedIn ? setLoginVisibility(true) : setLoginVisibility(false);
+    console.log(loginVisibility);
+    
   }, []);
 
   return (
