@@ -61,6 +61,7 @@ header {
   background-color: rgb(240, 228, 123);
   box-shadow: 2px 2px rgb(190, 183, 112);
   cursor: default;
+  color: black;
 
   border-radius: 10px;
 }
