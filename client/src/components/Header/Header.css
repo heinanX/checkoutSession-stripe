@@ -81,3 +81,41 @@ header {
   color: #b4cece;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1170px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+  }
+  .btns--div {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header-content > a {
+    padding-top: 1em;
+  }
+  .header-content > ul {
+    flex-direction: column;
+    padding: 2em 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-content > ul {
+    flex-direction: column;
+    padding: 1em 0;
+  }
+  
+  .btns--div {
+    position: static;
+  }
+
+  .buyBtn {
+    width: 200px;
+  }
+}

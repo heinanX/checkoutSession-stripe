@@ -15,7 +15,7 @@ const Dropdown_MyAccount = () => {
     <>
       {isLoggedIn ? (
         <li
-          className={`accountBtn ${isDropdownOpen ? "open" : ""}`}
+          className={`accountBtn ${isDropdownOpen ? "open" : ""} let-space-3`}
           onClick={toggleDropdown}
         >
           <img

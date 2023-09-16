@@ -12,3 +12,21 @@ main {
     gap: 5px;
     padding: 10px 10px;
 }
+
+@media only screen and (max-width: 900px) {
+    main {
+        padding-top: 145px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    main {
+        padding-top: 388px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    main {
+        padding-top: 400px;
+    }
+  }

@@ -44,8 +44,8 @@ const Header = () => {
           </Link>
           <ul>
             <BrowseSectionLink />
-            <li className="fakeBtn">About us</li>
-            <li className="fakeBtn">Contact us</li>
+            <li className="fakeBtn let-space-3">About us</li>
+            <li className="fakeBtn let-space-3">Contact us</li>
             <Dropdown_MyAccount />
           </ul>
           <div className="btns--div">
