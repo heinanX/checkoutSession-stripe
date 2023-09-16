@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-//import Announcement from '../Announcement/Announcement'
 import './Main.css'
 import { useSocket as useSocketProducts } from '../../context/productContext'
 import Products from '../Products/Products'
-//import { Cart } from '../../interfaces/interfaces'
 
 const Main = () => {
 
@@ -25,7 +23,6 @@ const Main = () => {
    
     <main id='main'>
       <img src="../../../../src/assets/ad-Capture.PNG" style={{ width: '100%', display: 'block' }} />
-{/*       <Announcement /> */}
       <h2 className='h2-title-styling'>Featured Products:</h2>
       <div className="productList">
         {loading ? (

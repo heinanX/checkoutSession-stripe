@@ -11,10 +11,10 @@ const BrowseSectionLink = () => {
           to="/"
           style={{ textDecoration: "none", color: "rgb(100, 100, 100)" }}
         >
-          <li className="fakeBtn">Browse Products</li>
+          <li className="fakeBtn let-space-3">Browse Products</li>
         </Link>
       ) : (
-        <li className="fakeBtn">
+        <li className="fakeBtn let-space-3">
           <ScrollLink
             to="main"
             smooth={true}
